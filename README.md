@@ -1,2 +1,2 @@
-# LosFavoritosDeMaria
-Repositorio del equipo Los favoritos de María para la materia de TSP.
+# HelpUs
+Repositorio del equipo Los favoritos de María para la aplicación HelpUs.

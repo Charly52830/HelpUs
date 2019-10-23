@@ -11,6 +11,16 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
+});
+*/
+
+Route::get('/', function() {
+	return View::make('pages.index');
+});
+
+Route::get('/foro', function() {
+	return View::make('pages.foro');
 });

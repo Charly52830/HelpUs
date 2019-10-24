@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\publicaciones;
+use App\Publicacion;
 use Illuminate\Http\Request;
 
-class PublicacionesController extends Controller
+class PublicacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +22,15 @@ class PublicacionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $publicacion=new Publicacion();
+		$publicacion->titulo=$request->titulo;
+		$publicacion->contenido=$request->contenido;
+		$publicacion->link_img=$request->link_img;
+		$publicacion->fecha_pub=$request->fecha_pub;
+		$publicacion->save();
+		return redirect('/foro');
     }
 
     /**
@@ -41,21 +47,33 @@ class PublicacionesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\publicaciones  $publicaciones
+     * @param  \App\Publicacion  $publicacion
      * @return \Illuminate\Http\Response
      */
-    public function show(publicaciones $publicaciones)
+    public function show(Publicacion $publicacion)
     {
         //
+    }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Publicacion  $publicacion
+     * @return \Illuminate\Http\Response
+     */
+    public function show_all()
+    {
+        $publicaciones=Publicacion::all();
+		return view('pages/foro',['publicaciones'=>$publicaciones]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\publicaciones  $publicaciones
+     * @param  \App\Publicacion  $publicacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(publicaciones $publicaciones)
+    public function edit(Publicacion $publicacion)
     {
         //
     }
@@ -64,10 +82,10 @@ class PublicacionesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\publicaciones  $publicaciones
+     * @param  \App\Publicacion  $publicacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, publicaciones $publicaciones)
+    public function update(Request $request, Publicacion $publicacion)
     {
         //
     }
@@ -75,10 +93,10 @@ class PublicacionesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\publicaciones  $publicaciones
+     * @param  \App\Publicacion  $publicacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(publicaciones $publicaciones)
+    public function destroy(Publicacion $publicacion)
     {
         //
     }

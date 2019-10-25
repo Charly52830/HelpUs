@@ -27,7 +27,7 @@
 			<tbody>
 				@foreach($publicaciones as $publicacion)
 				<tr>
-					<td>{{$publicacion->titulo}}</td>
+					<td><a href="publicacion/{{ $publicacion->id }}">{{$publicacion->titulo}}</a></td>
 					<td></td>
 					<td>{{$publicacion->fecha_pub}}</td>
 					<td></td>

@@ -32,6 +32,11 @@ Route::get('/foro',[
 	'as'=>'publicaciones.show_all'
 ]);
 
+Route::get('/publicacion/{id}',[
+	'uses'=>'PublicacionController@get',
+	'as'=>'publicaciones.get'
+]);
+
 Route::get('/nuevo_post', function() {
 	return View::make('pages.nuevo_post');
 });

@@ -56,15 +56,26 @@ class PublicacionController extends Controller
     }
     
     /**
-     * Display the specified resource.
+     * Display all instances of the database
      *
-     * @param  \App\Publicacion  $publicacion
-     * @return \Illuminate\Http\Response
+     * @return view pages/foro
      */
     public function show_all()
     {
         $publicaciones=Publicacion::all();
 		return view('pages/foro',['publicaciones'=>$publicaciones]);
+    }
+    
+    /**
+     * Regresa a una página con la información de una publicación.
+     *
+     * @param $id Identificador en la base de datos
+     * @return view pages/foro
+     */
+    public function get($id)
+    {
+    	$publicacion = Publicacion::findOrFail($id);
+    	return view('pages/publicacion',['publicacion'=>$publicacion]);
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAcososTable extends Migration
+class Acosos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateAcososTable extends Migration
      */
     public function up()
     {
-        Schema::create('acoso', function (Blueprint $table) {
+		Schema::create('acosos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->string('resumen');
-            $table->string('descripcion');
+            $table->string('nombre',100);
+            $table->longText('resumen',1000);
+            $table->longText('descripcion',3000);
+            $table->string('imagen',150);
         });
     }
 
@@ -28,6 +29,6 @@ class CreateAcososTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acoso');
+        Schema::dropIfExists('acosos');
     }
 }

@@ -15,9 +15,9 @@ class CreatePublicacionsTable extends Migration
     {
         Schema::create('publicacions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo',64);
-            $table->string('contenido',512);
-            $table->string('link_img',256);
+            $table->string('titulo');
+            $table->longText('contenido');
+            $table->string('link_img');
             $table->date('fecha_pub');
             $table->timestamps();
         });

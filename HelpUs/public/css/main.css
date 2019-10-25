@@ -1,1 +1,31 @@
 /* Estilos personalizados */
+
+.cursiva {
+	font-family: "Lora", serif;
+	font-style: italic;
+	margin-bottom:15px;
+}
+
+.table-hover tbody tr:hover td, .table tbody tr:hover th {
+	background: #D8BFD8;
+}
+
+.table {
+	font-family: "Lora", serif;
+}
+
+.btn-nuevo {
+	background: #f2f2f2;
+	color:#808080;
+	font-family: "Lora", serif;
+}
+
+.col-btn-nuevo {
+	padding:0px;
+}
+
+.btn-nuevo:hover {
+	background: #d8bfd8;
+	border-color: #d8bfd8;
+	color: white;
+}

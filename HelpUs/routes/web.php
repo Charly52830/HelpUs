@@ -21,6 +21,22 @@ Route::get('/', function() {
 	return View::make('pages.index');
 });
 
+/*
 Route::get('/foro', function() {
 	return View::make('pages.foro');
 });
+*/
+
+Route::get('/foro',[
+	'uses'=>'PublicacionController@show_all',
+	'as'=>'publicaciones.show_all'
+]);
+
+Route::get('/nuevo_post', function() {
+	return View::make('pages.nuevo_post');
+});
+
+Route::post('/crear_post',[
+	'uses'=>'PublicacionController@create',
+	'as'=>'publicacion.create'
+]);

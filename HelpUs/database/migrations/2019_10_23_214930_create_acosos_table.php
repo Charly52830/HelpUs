@@ -18,6 +18,7 @@ class CreateAcososTable extends Migration
             $table->string('nombre');
             $table->string('resumen');
             $table->string('descripcion');
+            $table->string('imagen');
         });
     }
 

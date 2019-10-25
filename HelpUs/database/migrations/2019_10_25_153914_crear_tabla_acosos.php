@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaPublicacion extends Migration
+class Acosos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CrearTablaPublicacion extends Migration
      */
     public function up()
     {
-        Schema::create('publicacion', function (Blueprint $table) {
+		Schema::create('acosos', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('titulo',64);
-            $table->string('contenido',512);
-            $table->string('link_img',256);
-            $table->date('fecha_pub');
-
-            $table->timestamps();
+            $table->string('nombre',100);
+            $table->longText('resumen',1000);
+            $table->longText('descripcion',3000);
+            $table->string('imagen',150);
         });
     }
 
@@ -31,6 +29,6 @@ class CrearTablaPublicacion extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publicacion');
+        Schema::dropIfExists('acosos');
     }
 }

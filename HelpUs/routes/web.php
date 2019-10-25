@@ -24,3 +24,8 @@ Route::get('/', function() {
 Route::get('/foro', function() {
 	return View::make('pages.foro');
 });
+
+Route::get('/acoso','AcosoController@informacionGeneral' )->name('acoso');
+
+Route::get('/acoso/{id}','AcosoController@detalleAcoso' )->name('acoso.detalle');
+

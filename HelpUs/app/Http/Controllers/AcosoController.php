@@ -8,11 +8,13 @@ use App;
 class AcosoController extends Controller
 {
     public function informacionGeneral(){
-        $acosos = App\Acoso::all();
-        return view('acoso.acoso',compact('acosos'));
+    	$acosos = App\Acoso::all();
+    	return view('pages/index',['acosos'=>$acosos]);
+    	//return view('pages.acoso',compact('acosos'));
     }
-    public function  detalleAcoso($id){
-        $acoso = App\Acoso::findOrFail($id);
-        return view('acoso.detalle', compact('acoso'));
+    public function detalleAcoso($id){
+    	$acoso = App\Acoso::findOrFail($id);
+    	return view('pages/detalle',['acoso'=>$acoso]);
+    	//return view('pages/acoso.detalle', compact('acoso'));
     }
 }

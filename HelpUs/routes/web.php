@@ -1,31 +1,38 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+* Rutas de Charly
 */
+
+Route::get('/foro',[
+	'uses'=>'PublicacionController@show_all',
+	'as'=>'publicaciones.show_all'
+]);
+
+Route::get('/publicacion/{id}',[
+	'uses'=>'PublicacionController@get',
+	'as'=>'publicaciones.get'
+]);
+
+Route::get('/nuevo_post', function() {
+	return View::make('pages.nuevo_post');
+});
+
+Route::post('/crear_post',[
+	'uses'=>'PublicacionController@create',
+	'as'=>'publicacion.create'
+]);
 
 /*
-Route::get('/', function () {
-    return view('welcome');
-});
+*	Rutas de Zorrilla
 */
 
-Route::get('/', function() {
-	return View::make('pages.index');
-});
+Route::get('/',[
+	'uses'=>'AcosoController@informacionGeneral',
+	'as'=>'acoso.informacionGeneral'
+]);
 
-Route::get('/foro', function() {
-	return View::make('pages.foro');
-});
-
-Route::get('/acoso','AcosoController@informacionGeneral' )->name('acoso');
+//Route::get('/','AcosoController@informacionGeneral' )->name('acoso');
 
 Route::get('/acoso/{id}','AcosoController@detalleAcoso' )->name('acoso.detalle');
 

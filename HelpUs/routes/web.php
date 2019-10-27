@@ -35,3 +35,12 @@ Route::get('/',[
 //Route::get('/','AcosoController@informacionGeneral' )->name('acoso');
 
 Route::get('/acoso/{id}','AcosoController@detalleAcoso' )->name('acoso.detalle');
+
+
+
+//
+
+
+Route::get('publicacions', function(){
+	return \App\Publicacion::with('comentario')->get();
+});

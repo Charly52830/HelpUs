@@ -1,6 +1,16 @@
 @extends('layouts.base')
 @section('content')
 	<div class="container"><div class="container ">
+		<br>
+		@if ($errors->any())
+		<div class="alert alert-danger">
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+		@endif
 		<div class="jumbotron">
 			<p>Datos de la publicacion</p>
 			<p>Titulo: {{ $publicacion->titulo }}</p>

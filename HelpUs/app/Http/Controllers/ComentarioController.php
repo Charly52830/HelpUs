@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Comentario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class ComentarioController extends Controller
 {
+    protected $fillable = ['contenido'];
+
+
     /**
      * Display a listing of the resource.
      *
@@ -35,12 +40,28 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
-      $comentario=new Comentario();
-      $comentario->respuesta=$request->contenido;
-      $comentario->publicacion_id=$request->publicacion;
-      $comentario->save();
-      return redirect()->back();
+      $mensajeError = [
+        'required' => 'Se necesita un contenido para la respuesta a la publicación.',
+      ];
+      $validator = Validator::make($request->all(), [
+            'contenido' => 'required'
+        ],$mensajeError);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        $comentario=new Comentario();
+        $comentario->respuesta=$request->contenido;
+        $comentario->publicacion_id=$request->publicacion;
+        $comentario->save();
+        return redirect()->back();
+
+
+
     }
+
 
     /**
      * Display the specified resource.

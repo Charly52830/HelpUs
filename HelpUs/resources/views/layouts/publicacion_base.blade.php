@@ -28,16 +28,15 @@
 								@foreach ($comentarios as $comentario)
 								<li class="media">
 									<a href="#" class="pull-left">
-										<img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+											<img class="img-responsive user-photo" src="https://c.disquscdn.com/uploads/users/11626/2212/avatar92.jpg?1406657745"  >
+
 									</a>
 									<div class="media-body">
 										<span class="text-muted pull-right">
 											<small class="text-muted">{{$comentario->created_at}}</small>
 										</span>
 										<strong class="text-success">Anónimo</strong>
-										<p>
-											{{ $comentario->respuesta }}
-										</p>
+										<p>{!! nl2br(e($comentario->respuesta)) !!}</p>
 									</div>
 								</li>
 								<br>
@@ -48,9 +47,9 @@
 								@csrf
 								<input type="hidden" name="publicacion" value="{{$publicacion->id}}"
 								id="publicacion"  >
-								<textarea class="form-control" name="contenido" id="contenido" required></textarea>
-
-							<button type="submit"  class="btn btn-light btn-nuevo">Publicar</button>
+								<textarea class="form-control" name="contenido" id="contenido" ></textarea>
+								<br>
+								<button type="submit"  class="btn btn-light btn-nuevo">Publicar</button>
 							</form>
 							<div class="clearfix"></div>
 						</div>

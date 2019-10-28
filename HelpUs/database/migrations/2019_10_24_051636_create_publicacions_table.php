@@ -31,6 +31,5 @@ class CreatePublicacionsTable extends Migration
     public function down()
     {
     	Schema::dropIfExists('publicacions');
-        Schema::dropIfExists('publicacion');
     }
 }

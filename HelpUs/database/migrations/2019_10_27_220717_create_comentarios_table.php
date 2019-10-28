@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaAcosos extends Migration
+class CreateComentariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CrearTablaAcosos extends Migration
      */
     public function up()
     {
-		Schema::create('acosos', function (Blueprint $table) {
+        Schema::create('comentarios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre',100);
-            $table->longText('resumen',1000);
-            $table->longText('descripcion',3000);
-            $table->string('imagen',150);
+            $table->integer('publicacion_id');
+            $table->text('respuesta');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ class CrearTablaAcosos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acosos');
+        Schema::dropIfExists('comentarios');
     }
 }

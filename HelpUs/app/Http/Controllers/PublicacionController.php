@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Publicacion;
 use Illuminate\Http\Request;
-
+use App\Comentario;
 class PublicacionController extends Controller
 {
     /**
@@ -25,12 +25,12 @@ class PublicacionController extends Controller
     public function create(Request $request)
     {
         $publicacion=new Publicacion();
-		$publicacion->titulo=$request->titulo;
-		$publicacion->contenido=$request->contenido;
-		$publicacion->link_img=$request->link_img;
-		$publicacion->fecha_pub=$request->fecha_pub;
-		$publicacion->save();
-		return redirect('/foro');
+		    $publicacion->titulo=$request->titulo;
+		    $publicacion->contenido=$request->contenido;
+		    $publicacion->link_img=$request->link_img;
+		    $publicacion->fecha_pub=$request->fecha_pub;
+		    $publicacion->save();
+		    return redirect('/foro');
     }
 
     /**
@@ -52,9 +52,10 @@ class PublicacionController extends Controller
      */
     public function show(Publicacion $publicacion)
     {
-        //
+
+
     }
-    
+
     /**
      * Display all instances of the database
      *
@@ -65,7 +66,7 @@ class PublicacionController extends Controller
         $publicaciones=Publicacion::all();
 		return view('pages/foro',['publicaciones'=>$publicaciones]);
     }
-    
+
     /**
      * Regresa a una página con la información de una publicación.
      *
@@ -75,7 +76,11 @@ class PublicacionController extends Controller
     public function get($id)
     {
     	$publicacion = Publicacion::findOrFail($id);
-    	return view('pages/publicacion',['publicacion'=>$publicacion]);
+      $comentarios=Comentario::where('publicacion_id',$id)->get();
+
+    	return view('pages/publicacion',['publicacion'=>$publicacion,
+      'comentarios'=>$comentarios
+      ]);
     }
 
     /**

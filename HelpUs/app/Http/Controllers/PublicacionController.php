@@ -25,12 +25,12 @@ class PublicacionController extends Controller
     public function create(Request $request)
     {
         $publicacion=new Publicacion();
-		$publicacion->titulo=$request->titulo;
-		$publicacion->contenido=$request->contenido;
-		$publicacion->link_img=$request->link_img;
-		$publicacion->fecha_pub=$request->fecha_pub;
-		$publicacion->save();
-		return redirect('/foro');
+		    $publicacion->titulo=$request->titulo;
+		    $publicacion->contenido=$request->contenido;
+		    $publicacion->link_img=$request->link_img;
+		    $publicacion->fecha_pub=$request->fecha_pub;
+		    $publicacion->save();
+		    return redirect('/foro');
     }
 
     /**

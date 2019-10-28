@@ -30,12 +30,18 @@
 										</p>
 									</div>
 								</li>
+								<br>
 								@endforeach
 							</ul>
 							<hr>
-							<textarea class="form-control" placeholder="Comenta tu respuesta" ></textarea>
-							<br>
-							<button type="button" class="btn btn-light btn-nuevo">Publicar</button>
+							<form action="{{route('comentario.store')}}" method="post">
+								@csrf
+								<input type="hidden" name="publicacion" value="{{$publicacion->id}}"
+								id="publicacion"  >
+								<textarea class="form-control" name="contenido" id="contenido" ></textarea>
+
+							<button type="submit"  class="btn btn-light btn-nuevo">Publicar</button>
+							</form>
 							<div class="clearfix"></div>
 						</div>
 					</div>

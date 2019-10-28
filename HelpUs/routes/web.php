@@ -36,6 +36,7 @@ Route::get('/',[
 
 Route::get('/acoso/{id}','AcosoController@detalleAcoso' )->name('acoso.detalle');
 
-
+Route::post('/publicacion/comentario',['uses'=>'ComentarioController@store',
+'as'=>'comentario.store']);
 
 //

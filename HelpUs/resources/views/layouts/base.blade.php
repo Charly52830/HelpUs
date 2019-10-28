@@ -8,7 +8,7 @@
 			<header>
 				@include('includes.header')
 			</header>
-			<div id="main" class="container">
+			<div id="main" class="container table">
 				<!-- Inicia sección del contenido -->
 				@yield('content')
 				<!-- Termina sección del contenido -->

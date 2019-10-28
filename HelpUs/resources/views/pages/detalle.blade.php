@@ -5,6 +5,6 @@
     </div>
 
 
-    <p class="text-justify"> {{$acoso->descripcion}}</p>
+    <p class="text-justify"> {!! nl2br(e($acoso->descripcion)) !!}</p>
 
 @stop

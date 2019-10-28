@@ -16,7 +16,8 @@ Route::get('/publicacion/{id}',[
 
 Route::get('/nuevo_post', function() {
 	return View::make('pages.nuevo_post');
-});
+
+})->name('foro.nuevo');
 
 Route::post('/crear_post',[
 	'uses'=>'PublicacionController@create',

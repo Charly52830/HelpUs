@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Acosos extends Migration
+class CrearTablaAcosos extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,8 @@ class Acosos extends Migration
 		Schema::create('acosos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre',100);
-            $table->longText('resumen',1000);
-            $table->longText('descripcion',3000);
+            $table->longText('resumen');
+            $table->longText('descripcion');
             $table->string('imagen',150);
         });
     }

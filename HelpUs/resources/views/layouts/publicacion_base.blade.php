@@ -48,7 +48,7 @@
 								@csrf
 								<input type="hidden" name="publicacion" value="{{$publicacion->id}}"
 								id="publicacion"  >
-								<textarea class="form-control" name="contenido" id="contenido" ></textarea>
+								<textarea class="form-control" name="contenido" id="contenido" required></textarea>
 
 							<button type="submit"  class="btn btn-light btn-nuevo">Publicar</button>
 							</form>

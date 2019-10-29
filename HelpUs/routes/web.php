@@ -36,6 +36,16 @@ Route::get('/',[
 
 Route::get('/acoso/{id}','AcosoController@detalleAcoso' )->name('acoso.detalle');
 
+<<<<<<< HEAD
+=======
+
+
+//Rutas de Fer
+Route::post('/publicacion/comentario',['uses'=>'ComentarioController@store',
+'as'=>'comentario.store']);
+
+//
+>>>>>>> 87b5fae13b95d67b9955127e0248d454ee24ec0b
 Route::get('/organizaciones',[
 	'uses'=>'OrganizacionController@index',
 	'as'=>'organizaciones.infoGeneral'

@@ -16,7 +16,7 @@
 								<a class="nav-link" href="/foro">Foro</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/organizaciones">Organizaciones</a>
+								<a class="nav-link" href="{{route('organizaciones.infoGeneral') }}">Organizaciones</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="/organizaciones">Acerca de</a>

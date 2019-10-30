@@ -43,3 +43,10 @@ Route::post('/publicacion/comentario',[
   'uses'=>'ComentarioController@store',
   'as'=>'comentario.store'
 ]);
+
+//Rutas de Ángel.
+
+Route::get('/organizaciones',[
+	'uses'=>'OrganizacionController@index',
+	'as'=>'organizaciones.infoGeneral'
+]);

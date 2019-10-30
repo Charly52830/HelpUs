@@ -36,3 +36,10 @@ Route::get('/',[
 //Route::get('/','AcosoController@informacionGeneral' )->name('acoso');
 
 Route::get('/acoso/{id}','AcosoController@detalleAcoso' )->name('acoso.detalle');
+
+
+//Rutas de Fer
+Route::post('/publicacion/comentario',[
+  'uses'=>'ComentarioController@store',
+  'as'=>'comentario.store'
+]);

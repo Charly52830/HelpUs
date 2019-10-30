@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePublicacionsTable extends Migration
+class CreateComentariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePublicacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('publicacions', function (Blueprint $table) {
+        Schema::create('comentarios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo');
-            $table->longText('contenido');
-            $table->string('link_img');
-            $table->date('fecha_pub');
+            $table->integer('publicacion_id');
+            $table->text('respuesta');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreatePublicacionsTable extends Migration
      */
     public function down()
     {
-    	Schema::dropIfExists('publicacions');
+        Schema::dropIfExists('comentarios');
     }
 }

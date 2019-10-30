@@ -16,8 +16,8 @@ class CrearTablaAcosos extends Migration
 		Schema::create('acosos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre',100);
-            $table->longText('resumen',1000);
-            $table->longText('descripcion',3000);
+            $table->longText('resumen');
+            $table->longText('descripcion');
             $table->string('imagen',150);
         });
     }

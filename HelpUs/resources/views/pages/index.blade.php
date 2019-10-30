@@ -1,15 +1,16 @@
 @extends('layouts.base')
 @section('content')
-    <div class="jumbotron">Este es un jumbotron</div>
     <h1>Acosos</h1>
-    <div class="row align-items-center">
+    <div class="row">
         @foreach($acosos as $ac)
-            <div class="col-6 col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('img/'. $ac->imagen) }}" class="card-img-top" alt="...">
+            <div class="col-md-4 col-lg-4 d-flex align-items-stretch">
+                <div class="card ">
+
+                    <img width="200" height="200"  src="{{ asset('img/'. $ac->imagen) }}" class=" card-img-top rounded mx-auto d-block" alt="Logo Help US">
                     <div class="card-body">
                         <h5 class="card-title">{{$ac->nombre}}</h5>
-                        <p class="card-text">{{$ac->resumen}}</p>
+                        <p class="card-text" style="height: 15rem;"> {!! nl2br(e($ac->resumen)) !!}</p>
+                        <br>
                     </div>
                     <div class="card-footer">
                         <a href="{{route('acoso.detalle', $ac) }}" type="button" class="btn btn-secondary btn-lg btn-block">Saber más</a>

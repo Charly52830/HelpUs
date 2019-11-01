@@ -11,14 +11,20 @@
 			</ul>
 		</div>
 		@endif
-		<div class="jumbotron">
-			<p>Datos de la publicacion</p>
-			<p>Titulo: {{ $publicacion->titulo }}</p>
-			<p>Texto: {{ $publicacion->contenido }}</p>
-			<p>Link imagen: {{ $publicacion->link_img }}</p>
-			<p>Fecha: {{ $publicacion->fecha_pub }}</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center"><h1 class="titulo-post">{{ $publicacion->titulo }} </h1></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center post-fecha"> {{ $publicacion->created_at }} </div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10 text-justify contenido-post"> {!! nl2br(e($publicacion->contenido)) !!} </div>
+				<div class="col-md-1"></div>
+			</div>
 		</div>
-
+		<br>
 		<div class="row bootstrap snippets">
 			<div class="col-md-12 col-md-offset-12 col-sm-12">
 				<div class="comment-wrapper">

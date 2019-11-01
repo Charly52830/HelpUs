@@ -16,7 +16,6 @@
     font-family: "Lora", serif;
 }
 
-
 .btn-nuevo {
     background: #f2f2f2;
     color:#808080;
@@ -31,4 +30,20 @@
     background: #d8bfd8;
     border-color: #d8bfd8;
     color: white;
+}
+
+.titulo-post {
+    font-family: "Lora", serif;
+    font-style: italic;
+}
+
+.contenido-post {
+    font-family: "Lora", serif;
+    font-style: italic;
+    margin-top:15px;	
+}
+
+.post-fecha {
+	margin-top:0px;
+	color:grey;
 }

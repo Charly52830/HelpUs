@@ -17,8 +17,6 @@ class CreatePublicacionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->longText('contenido');
-            $table->string('link_img');
-            $table->date('fecha_pub');
             $table->timestamps();
         });
     }

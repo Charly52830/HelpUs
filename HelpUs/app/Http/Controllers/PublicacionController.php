@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Publicacion;
 use Illuminate\Http\Request;
 use App\Comentario;
+use Illuminate\Support\Facades\Validator;
+
+
 class PublicacionController extends Controller
 {
     /**
@@ -24,13 +27,24 @@ class PublicacionController extends Controller
      */
     public function create(Request $request)
     {
-        $publicacion=new Publicacion();
-		    $publicacion->titulo=$request->titulo;
-		    $publicacion->contenido=$request->contenido;
-		    $publicacion->link_img=$request->link_img;
-		    $publicacion->fecha_pub=$request->fecha_pub;
-		    $publicacion->save();
-		    return redirect('/foro');
+		$mensajeError = [
+			'required' => 'Porfavor ingresa todos los datos de la publicacion',
+		];
+		$validator = Validator::make($request->all(), [
+			'titulo' => 'required|max:255',
+			'contenido' => 'required'
+		],$mensajeError);
+
+		if ($validator->fails()) {
+			return redirect()->back()
+				        ->withErrors($validator)
+				        ->withInput();
+		}
+		$publicacion=new Publicacion();
+		$publicacion->titulo=$request->titulo;
+		$publicacion->contenido=$request->contenido;
+		$publicacion->save();
+		return redirect('/foro');
     }
 
     /**
@@ -75,12 +89,12 @@ class PublicacionController extends Controller
      */
     public function get($id)
     {
-    	$publicacion = Publicacion::findOrFail($id);
-      $comentarios=Comentario::where('publicacion_id',$id)->get();
+		$publicacion = Publicacion::findOrFail($id);
+		$comentarios=Comentario::where('publicacion_id',$id)->get();
 
-    	return view('pages/publicacion',['publicacion'=>$publicacion,
-      'comentarios'=>$comentarios
-      ]);
+		return view('layouts/publicacion_base',['publicacion'=>$publicacion,
+			'comentarios'=>$comentarios
+		]);
     }
 
     /**

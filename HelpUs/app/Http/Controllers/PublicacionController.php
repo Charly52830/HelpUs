@@ -92,7 +92,7 @@ class PublicacionController extends Controller
 		$publicacion = Publicacion::findOrFail($id);
 		$comentarios=Comentario::where('publicacion_id',$id)->get();
 
-		return view('pages/publicacion',['publicacion'=>$publicacion,
+		return view('layouts/publicacion_base',['publicacion'=>$publicacion,
 			'comentarios'=>$comentarios
 		]);
     }

@@ -10,6 +10,16 @@
 			</ul>
 		</div>
 		@endif
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="text-center contenido-post">Recuerda no compartir información sensible personal ni de terceros.
+						Si estás en una situación de riesgo comunícate con una autoridad inmediatamente</p>
+					<p class="text-center contenido-post">No dudes en ayudar y en que serás ayudado.</p>
+				</div>
+				
+			</div>
+		</div>
 		<hr>
 		<h3 class="cursiva">Nuevo tema de discusión</h3>
 		<div class="container">

@@ -6,12 +6,19 @@
     margin-bottom:15px;
 }
 
+.link-foro a:hover {
+	color:white;
+	text-decoration:none;
+}
+
 .table-hover tbody tr:hover td, .table tbody tr:hover th {
     background: #D8BFD8;
 }
+
 .container-pagina{
     font-family: "Lora", serif;
 }
+
 .table{
     font-family: "Lora", serif;
 }

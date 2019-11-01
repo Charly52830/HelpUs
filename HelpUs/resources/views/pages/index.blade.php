@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-    <h1>Acosos</h1>
+    <h1 class="cursiva">Acosos</h1>
     <div class="row">
         @foreach($acosos as $ac)
             <div class="col-md-4 col-lg-4 d-flex align-items-stretch">

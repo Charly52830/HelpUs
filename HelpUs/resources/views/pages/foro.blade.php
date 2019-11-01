@@ -16,16 +16,16 @@
 		</div>
         <hr>
         <div class="container"><div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h3 class="cursiva">Todos los post</h3>
-                    </div>
-                    <div class="col-md-3 col-btn-nuevo">
-                        <a class="btn btn-light btn-nuevo" href="{{route('foro.nuevo')}}">NUEVO</a>
-                    </div>
-                </div>
-            </div></div>
-        <table class="table table-hover">
+			<div class="row">
+				<div class="col-md-3">
+					<h3 class="cursiva">Todos los post</h3>
+				</div>
+				<div class="col-md-3 col-btn-nuevo">
+					<a class="btn btn-light btn-nuevo" href="{{route('foro.nuevo')}}">NUEVO</a>
+				</div>
+            </div>
+        </div></div>
+        <table class="table table-hover link-foro">
             <thead>
             <tr>
                 <th scope="col">Titulo</th>
@@ -37,7 +37,7 @@
             <tbody>
             @foreach($publicaciones as $publicacion)
                 <tr>
-                    <td><a href= "{{ route('publicaciones.get',$publicacion->id) }}  " >{{$publicacion->titulo}}</a></td>
+                    <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}  " >{{ $publicacion->titulo }}</a></td>
                     <td></td>
                     <td>{{$publicacion->fecha_pub}}</td>
                     <td></td>

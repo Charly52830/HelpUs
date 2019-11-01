@@ -25,6 +25,7 @@
 			</div>
 		</div>
 		<br>
+		<hr>
 		<div class="row bootstrap snippets">
 			<div class="col-md-12 col-md-offset-12 col-sm-12">
 				<div class="comment-wrapper">
@@ -34,7 +35,7 @@
 								@foreach ($comentarios as $comentario)
 								<li class="media">
 									<a href="#" class="pull-left">
-											<img class="img-responsive user-photo" src="https://c.disquscdn.com/uploads/users/11626/2212/avatar92.jpg?1406657745"  >
+											<img class="img-responsive user-photo" src="https://c.disquscdn.com/uploads/users/11626/2212/avatar92.jpg?1406657745"  >&nbsp;&nbsp;
 
 									</a>
 									<div class="media-body">
@@ -42,13 +43,15 @@
 											<small class="text-muted">{{$comentario->created_at}}</small>
 										</span>
 										<strong class="text-success">Anónimo</strong>
-										<p>{!! nl2br(e($comentario->respuesta)) !!}</p>
+										<p>{!!nl2br(e($comentario->respuesta)) !!}</p>
 									</div>
 								</li>
 								<br>
 								@endforeach
 							</ul>
-							<hr>
+
+
+
 							<form action="{{route('comentario.store')}}" method="post">
 								@csrf
 								<input type="hidden" name="publicacion" value="{{$publicacion->id}}"

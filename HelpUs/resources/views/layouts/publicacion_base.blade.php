@@ -35,8 +35,8 @@
 								@foreach ($comentarios as $comentario)
 								<li class="media">
 									<a href="#" class="pull-left">
-											<img class="img-responsive user-photo" src="https://c.disquscdn.com/uploads/users/11626/2212/avatar92.jpg?1406657745"  >&nbsp;&nbsp;
-
+										<img class="img-responsive user-photo" 
+										src="https://c.disquscdn.com/uploads/users/11626/2212/avatar92.jpg?1406657745">&nbsp;&nbsp;
 									</a>
 									<div class="media-body">
 										<span class="text-muted pull-right">
@@ -49,9 +49,6 @@
 								<br>
 								@endforeach
 							</ul>
-
-
-
 							<form action="{{route('comentario.store')}}" method="post">
 								@csrf
 								<input type="hidden" name="publicacion" value="{{$publicacion->id}}"
@@ -64,15 +61,8 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
-
-		<!-- Inicia sección de comentarios
-
-
-
-		<!-- Termina sección de comentarios -->
 		<hr>
 	</div></div>
 @stop

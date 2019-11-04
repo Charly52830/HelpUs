@@ -1,3 +1,5 @@
+CREATE TABLE `helpusdb`.`organizacions` ( `id` INT(100) NOT NULL AUTO_INCREMENT , `nombre` VARCHAR(150) NOT NULL , `resumen` LONGTEXT NOT NULL , `telefono` VARCHAR(50) NULL , `enlace` VARCHAR(200) NULL , `imagen` VARCHAR(200) NOT NULL , PRIMARY KEY (`id`(100))) ENGINE = InnoDB;
+
 INSERT INTO HelpUsDB.organizacions (nombre,resumen,telefono,enlace,imagen)
 VALUES ('Coordinadora Nacional de Ayuda a Mujeres Indígenas',
 		'Especializadas en la ayuda para mujeres indígenas. Coadyuvan en el desarrollo de la mujer de otras comunidades.',

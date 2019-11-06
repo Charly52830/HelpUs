@@ -3,7 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+/*
+ * Clase que contiene el modelo de acoso
+ * en esta clase se definen los campos y tipos de datos que contiene
+ * el objeto en cuestion.
+ */
 class CrearTablaAcosos extends Migration
 {
     /**

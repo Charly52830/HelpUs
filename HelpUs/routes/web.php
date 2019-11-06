@@ -45,7 +45,6 @@ Route::post('/publicacion/comentario',[
 ]);
 
 //Rutas de Ángel.
-
 Route::get('/organizaciones',[
 	'uses'=>'OrganizacionController@index',
 	'as'=>'organizaciones.infoGeneral'

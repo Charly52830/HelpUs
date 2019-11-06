@@ -1,5 +1,7 @@
 <?php
-
+/*
+*Autor: Luis Fernando García
+*/
 namespace App\Http\Controllers;
 
 use App\Comentario;

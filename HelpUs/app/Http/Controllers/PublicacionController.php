@@ -1,5 +1,7 @@
 <?php
-
+/*
+*Autor: Carlos Ruvalcaba
+*/
 namespace App\Http\Controllers;
 
 use App\Publicacion;

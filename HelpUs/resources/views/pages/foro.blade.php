@@ -1,5 +1,5 @@
 <!--
- * Autor: 
+ * Autor: Carlos Ruvalcaba
 -->
 @extends('layouts.base')
 @section('content')

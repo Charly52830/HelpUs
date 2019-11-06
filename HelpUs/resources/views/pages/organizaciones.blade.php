@@ -12,7 +12,7 @@
 				    <h5 class="card-title">{{$orgs->nombre}}</h5>
 				    <p class="card-text">{{$orgs->resumen}}</p>
                     <p class="card-text">Teléfono: {{$orgs->telefono}}</p>
-				    <a href="{{$orgs->enlace}}" class="btn btn-nuevo btn-lg btn-block">ver más...</a>
+				    <a href="{{$orgs->enlace}}" class="btn btn-primary btn-lg btn-block">ver más...</a>
 				  </div>
 				</div>
 			</div>

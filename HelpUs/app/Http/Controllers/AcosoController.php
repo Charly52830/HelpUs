@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * Autor: José Luis Zorrilla
+ */
 namespace App\Http\Controllers;
 
 use App\Acoso;

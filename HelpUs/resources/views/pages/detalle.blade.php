@@ -1,3 +1,6 @@
+<!--
+ * Autor: José Luis Zorrilla
+-->
 @extends('layouts.base')
 @section('content')
     <!--

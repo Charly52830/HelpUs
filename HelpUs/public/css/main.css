@@ -61,5 +61,28 @@
 }
 
 .bg-helpus {
-	background-color: #d8bfd8;
+	/* Morado */
+	background-color: #17D5C9;
 }
+
+.bg-helpus2 {
+	/* Naranja */
+	background-color: #F28F1E;
+}
+
+.img-card {
+	height:200px;
+	width: auto;
+}
+
+.myfooter {	
+	padding:10px;
+}
+
+/*
+.container-principal {
+	background-image: url("../img/Background.png");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+*/

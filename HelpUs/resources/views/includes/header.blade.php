@@ -12,10 +12,10 @@
 				<a class="nav-link" href="{{ route('acoso.informacionGeneral') }}">Home<span class="sr-only"></span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="{{ route('publicaciones.show_all') }}">Foro</a>
+				<a class="nav-link" href="{{ route('organizaciones.infoGeneral') }}">Organizaciones</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="{{ route('organizaciones.infoGeneral') }}">Organizaciones</a>
+				<a class="nav-link" href="{{ route('publicaciones.show_all') }}">Foro</a>
 			</li>
 		</ul>
 	</div>

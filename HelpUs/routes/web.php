@@ -3,7 +3,10 @@
 /*
 * Rutas de Charly
 */
+Auth::routes();
 
+
+Route::get('/home', 'HomeController@index');
 Route::get('/foro',[
 	'uses'=>'PublicacionController@show_all',
 	'as'=>'publicaciones.show_all'
@@ -50,3 +53,7 @@ Route::get('/organizaciones',[
 	'uses'=>'OrganizacionController@index',
 	'as'=>'organizaciones.infoGeneral'
 ]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

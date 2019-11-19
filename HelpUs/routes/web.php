@@ -46,3 +46,8 @@ Route::get('/organizaciones',[
 	'uses'=>'OrganizacionController@index',
 	'as'=>'organizaciones.infoGeneral'
 ]);
+
+//Rutas chat
+Route::get('/mensaje','BotController@respuesta' )->name('bot.respuesta');
+
+Route::get('/chat','BotController@chat' )->name('bot.chat');

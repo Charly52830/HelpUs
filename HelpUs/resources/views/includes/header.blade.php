@@ -17,8 +17,10 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{{ route('publicaciones.show_all') }}">Foro</a>
 			</li>
+			<li class="nav-item ">
+				<a class="nav-link" href="{{ route('bot.chat') }}">Chat</a>
+			</li>
 		</ul>
 	</div>
 </nav>
 <hr>
-

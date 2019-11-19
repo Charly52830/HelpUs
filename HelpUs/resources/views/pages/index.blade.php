@@ -1,8 +1,8 @@
 @extends('layouts.base')
 @section('content')
 	<div class="container">
-		<div class="row"> 
-			
+		<div class="row">
+
 		</div>
 	</div>
 	<h1 class="helpus-font-2">Tipos de acoso</h1>

@@ -6,6 +6,7 @@ use App\Publicacion;
 use Illuminate\Http\Request;
 use App\Comentario;
 use Illuminate\Support\Facades\Validator;
+use GuzzleHttp\Client;
 
 
 class PublicacionController extends Controller
@@ -34,7 +35,7 @@ class PublicacionController extends Controller
 			'titulo' => 'required|max:255',
 			'contenido' => 'required'
 		],$mensajeError);
-		
+
 		if ($validator->fails()) {
 			return redirect()->back()
 					->withErrors($validator)
@@ -76,6 +77,14 @@ class PublicacionController extends Controller
 	*/
 	public function show_all()
 	{
+    if (isset($_COOKIE['botsesion'])) {
+      $id=$_COOKIE['botsesion'];
+      echo "destrui sesion ".$id;
+      $client = new Client();
+      $response = $client->request('GET', 'http://localhost:8080/sesion?sessionId='.$id);
+      setcookie("botsesion", "", time() - 3600);
+
+    }
 		$publicaciones=Publicacion::all();
 		return view('pages/foro',['publicaciones'=>$publicaciones]);
 	}

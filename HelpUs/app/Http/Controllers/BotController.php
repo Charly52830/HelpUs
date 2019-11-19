@@ -7,29 +7,46 @@ use GuzzleHttp\Client;
 
 class BotController extends Controller
 {
-  private $idsesion=0;
-  private $res="";
+
 
   public function chat(){
+
+    if (isset($_COOKIE['botsesion'])) {
+      $id=$_COOKIE['botsesion'];
+      echo "destrui sesion ".$id;
+      $client = new Client();
+      $response = $client->request('GET', 'http://localhost:8080/sesion?sessionId='.$id);
+      setcookie("botsesion", "", time() - 3600);
+
+    }
     $client = new Client();
     $response = $client->request('GET', 'http://localhost:8080/chat');
     $statusCode = $response->getStatusCode();
     $body = $response->getBody();
     $arregloRespuesta = json_decode($body,true);
-    $this->idsesion= $arregloRespuesta["mensaje"];
-    $res= $arregloRespuesta["respuesta"];
+    $idsesion= $arregloRespuesta["mensaje"];
+    setcookie('botsesion',$idsesion);
 
-    return view('pages/chat',['mensajes'=>$res]);
+    $res= $arregloRespuesta["respuesta"];
+    echo "cree sesion".$idsesion;
+    return view('pages/chat',['mensajes'=>$res,'sessionid'=>$idsesion]);
   }
 
 
-  public function respuesta()
-    {
+  public function respuesta(Request $request)
+  {
     	$client = new Client();
-    	$response = $client->request('GET', 'http://localhost:8081/message?mensaje=Mis%20compa%C3%B1eros%20de%20trabajo%20se%20masturban%20enfrente%20de%20mi%20y%20no%20se%20que%20hacer');
+    	$response = $client->request('GET', 'http://localhost:8080/message?mensaje='.$request->pregunta.'&sessionId='.$request->idsesion);
     	$statusCode = $response->getStatusCode();
     	$body = $response->getBody()->getContents();
-
-    	return $body;
+      echo $body;
     }
+
+  /**public function destruirSesion(string $id){
+
+    $statusCode = $response->getStatusCode();
+    $body = $response->getBody()->getContents();
+  }*/
+
+
 }

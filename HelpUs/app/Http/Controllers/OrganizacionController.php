@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Organizacion;
+use GuzzleHttp\Client;
 
 class OrganizacionController extends Controller
 {
@@ -11,7 +12,7 @@ class OrganizacionController extends Controller
     	//$acosos = App\Acoso::all();
     	return view('pages.organizaciones');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +20,14 @@ class OrganizacionController extends Controller
      */
     public function index()
     {
+      if (isset($_COOKIE['botsesion'])) {
+        $id=$_COOKIE['botsesion'];
+        echo "destrui sesion ".$id;
+        $client = new Client();
+        $response = $client->request('GET', 'http://localhost:8080/sesion?sessionId='.$id);
+        setcookie("botsesion", "", time() - 3600);
+
+      }
         $org = Organizacion::all();
         return view('pages.organizaciones', compact('org'));
     }

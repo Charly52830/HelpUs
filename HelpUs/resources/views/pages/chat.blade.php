@@ -21,13 +21,18 @@
             </div>
           </li>
 
-
           <li class="white">
-            <div class="form-group basic-textarea">
-              <textarea class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="3" placeholder="Escribe tu mensaje aquí"></textarea>
-            </div>
+          <form action="{{route('bot.respuesta')}}" method="post">
+            @csrf
+              <div class="form-group basic-textarea">
+                <textarea class="form-control pl-2 my-0" rows="3" placeholder="Escribe tu mensaje aquí" name="pregunta" id="pregunta"></textarea>
+                <input type="hidden" name="idsesion" value="{{$sessionid}}"
+								id="idsesion"  >
+              </div>
+            <button type="submit"  class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Enviar</button>
+          </form>
           </li>
-          <button type="button" class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Enviar</button>
+
         </ul>
 
       </div>

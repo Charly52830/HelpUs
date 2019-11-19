@@ -48,6 +48,6 @@ Route::get('/organizaciones',[
 ]);
 
 //Rutas chat
-Route::get('/mensaje','BotController@respuesta' )->name('bot.respuesta');
+Route::post('/mensaje','BotController@respuesta' )->name('bot.respuesta');
 
 Route::get('/chat','BotController@chat' )->name('bot.chat');

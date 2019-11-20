@@ -5,8 +5,6 @@
 */
 Auth::routes();
 
-
-Route::get('/home', 'HomeController@index');
 Route::get('/foro',[
 	'uses'=>'PublicacionController@show_all',
 	'as'=>'publicaciones.show_all'

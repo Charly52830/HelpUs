@@ -54,6 +54,3 @@ Route::get('/organizaciones',[
 	'as'=>'organizaciones.infoGeneral'
 ]);
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

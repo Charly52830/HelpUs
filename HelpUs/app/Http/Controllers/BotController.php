@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 class BotController extends Controller
 {
 
-
+  private $mensajes = array();
   public function chat(){
 
     if (isset($_COOKIE['botsesion'])) {
@@ -26,7 +26,6 @@ class BotController extends Controller
     $arregloRespuesta = json_decode($body,true);
     $idsesion= $arregloRespuesta["mensaje"];
     setcookie('botsesion',$idsesion);
-
     $res= $arregloRespuesta["respuesta"];
     echo "cree sesion".$idsesion;
     return view('pages/chat',['mensajes'=>$res,'sessionid'=>$idsesion]);
@@ -36,17 +35,17 @@ class BotController extends Controller
   public function respuesta(Request $request)
   {
     	$client = new Client();
+
     	$response = $client->request('GET', 'http://localhost:8080/message?mensaje='.$request->pregunta.'&sessionId='.$request->idsesion);
+
     	$statusCode = $response->getStatusCode();
-    	$body = $response->getBody()->getContents();
-      echo $body;
+    	$body = $response->getBody();
+
+      $arregloRespuesta = json_decode($body,true);
+      array_push($this->mensajes,$arregloRespuesta["mensaje"],$res= $arregloRespuesta["respuesta"] );
+      return view('pages/respuestas',['mensajes'=>$this->mensajes,'sessionid'=>$request->idsesion]);
     }
 
-  /**public function destruirSesion(string $id){
-
-    $statusCode = $response->getStatusCode();
-    $body = $response->getBody()->getContents();
-  }*/
 
 
 }

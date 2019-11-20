@@ -17,7 +17,6 @@ Route::get('/publicacion/{id}',[
 
 Route::get('/nuevo_post', function() {
 	return View::make('pages.nuevo_post');
-
 })->name('foro.nuevo');
 
 Route::post('/crear_post',[
@@ -34,15 +33,12 @@ Route::get('/',[
 	'as'=>'acoso.informacionGeneral'
 ]);
 
-//Route::get('/','AcosoController@informacionGeneral' )->name('acoso');
-
 Route::get('/acoso/{id}','AcosoController@detalleAcoso' )->name('acoso.detalle');
-
 
 //Rutas de Fer
 Route::post('/publicacion/comentario',[
-  'uses'=>'ComentarioController@store',
-  'as'=>'comentario.store'
+	'uses'=>'ComentarioController@store',
+	'as'=>'comentario.store'
 ]);
 
 //Rutas de Ángel.

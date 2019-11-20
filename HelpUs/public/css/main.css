@@ -59,3 +59,51 @@
 	font-family: "Lora", serif;
     font-style: italic;
 }
+
+.bg-helpus {
+	/* Morado */
+	background-color: #17D5C9;
+}
+
+.bg-helpus2 {
+	/* Naranja */
+	background-color: #F28F1E;
+}
+
+.img-card {
+	height:200px;
+	width: auto;
+}
+
+.myfooter {	
+	padding:10px;
+}
+
+/*
+.container-principal {
+	background-image: url("../img/PurpleBackground4.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+*/
+
+/*
+.org-header {
+	background-image: url("../img/PurpleBackground.jpeg");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+*/
+
+.helpus-font-2 {
+	font-family: "source-sans-pro", Helvetica, Arial, sans-serif;
+	font-style: italic;
+	color: #898a8d;
+}
+
+.helpus-font-3 {
+	font-family:"Vijaya", "source-sans-pro", Helvetica, Arial, sans-serif;
+	font-style:italic;
+	font-size: 0.9rem;
+}
+

@@ -36,21 +36,25 @@
             </thead>
             @guest
             @else
-                <hr>
-                <a class="btn  btn-primary cursiva align-middle" href="{{ route('publicaciones.getPostU', Auth::user()->id)}}">Ver mis publicaciones</a>
-                </br>
-                </br>
             @endguest
             <tbody>
-            @foreach($publicaciones as $publicacion)
+            @foreach($publicacionUser as $publicacion)
                 <tr>
                     <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}  " >{{ $publicacion->titulo }}</a></td>
-                    <td>{{$publicacion->user_id}}</td>
-                    <td class="text-center post-fecha">{{$publicacion->update_at}}</td>
+                    <td></td>
+                    <td>{{$publicacion->create_at}}</td>
                     <td></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div></div>
+
+    <script>
+        if(document.getElementById("anonimo").checked) {
+            document.getElementById('anonimo').valueOf(true);
+        }else{
+            document.getElementById('anonimo').valueOf(false);
+        }
+    </script>
 @stop

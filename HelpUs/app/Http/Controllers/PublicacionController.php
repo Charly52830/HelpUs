@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Publicacion;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use App\Comentario;
 use Illuminate\Support\Facades\Validator;
@@ -25,7 +26,29 @@ class PublicacionController extends Controller
 	*
 	* @return \Illuminate\Http\Response
 	*/
-	public function create(Request $request)
+    public function create(Request $request)
+    {
+        $mensajeError = [
+            'required' => 'Porfavor ingresa todos los datos de la publicacion',
+        ];
+        $validator = Validator::make($request->all(), [
+            'titulo' => 'required|max:255',
+            'contenido' => 'required'
+        ],$mensajeError);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $publicacion=new Publicacion();
+        $publicacion->titulo=$request->titulo;
+        $publicacion->contenido=$request->contenido;
+        $publicacion->anonimo=1;
+        $publicacion->save();
+        return redirect('/foro');
+    }
+	public function createU(Request $request)
 	{
 		$mensajeError = [
 			'required' => 'Porfavor ingresa todos los datos de la publicacion',
@@ -34,15 +57,17 @@ class PublicacionController extends Controller
 			'titulo' => 'required|max:255',
 			'contenido' => 'required'
 		],$mensajeError);
-		
+
 		if ($validator->fails()) {
 			return redirect()->back()
 					->withErrors($validator)
 					->withInput();
 		}
 		$publicacion=new Publicacion();
-		$publicacion->titulo=$request->titulo;
-		$publicacion->contenido=$request->contenido;
+        $publicacion->user_id=$request->user()->id;
+        $publicacion->titulo=$request->titulo;
+        $publicacion->contenido=$request->contenido;
+        $publicacion->anonimo=$request->anonimo;
 		$publicacion->save();
 		return redirect('/foro');
 	}
@@ -77,7 +102,9 @@ class PublicacionController extends Controller
 	public function show_all()
 	{
 		$publicaciones=Publicacion::all();
-		return view('pages/foro',['publicaciones'=>$publicaciones]);
+		return view('pages/foro',[
+		    'publicaciones'=>$publicaciones,
+        ]);
 	}
 
 	/**
@@ -90,11 +117,18 @@ class PublicacionController extends Controller
 	{
 		$publicacion = Publicacion::findOrFail($id);
 		$comentarios=Comentario::where('publicacion_id',$id)->get();
+
 		return view('layouts/publicacion_base',[
 			'publicacion'=>$publicacion,
-			'comentarios'=>$comentarios
+			'comentarios'=>$comentarios,
 		]);
 	}
+	public  function getPublicacionesUser($idUser){
+        $publicacionUser = Publicacion::where('user_id',$idUser)->get();
+        return view('pages/foro_usuario',[
+            'publicacionUser'=>$publicacionUser
+        ]);
+    }
 
 	/**
 	* Show the form for editing the specified resource.

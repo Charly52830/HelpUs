@@ -15,6 +15,7 @@ Route::get('/publicacion/{id}',[
 	'as'=>'publicaciones.get'
 ]);
 
+
 Route::get('/nuevo_post', function() {
 	return View::make('pages.nuevo_post');
 })->name('foro.nuevo');
@@ -23,6 +24,11 @@ Route::post('/crear_post',[
 	'uses'=>'PublicacionController@create',
 	'as'=>'publicacion.create'
 ]);
+
+Route::get('/user_post/{id}',[
+    'uses'=>'PublicacionController@getPublicacionesUser',
+    'as'=>'publicaciones.getPostU'
+])->middleware('auth');
 
 /*
 *	Rutas de Zorrilla

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Publicacion;
-use http\Client\Curl\User;
+use App\User;
 use Illuminate\Http\Request;
 use App\Comentario;
 use Illuminate\Queue\RedisQueue;
@@ -88,7 +88,8 @@ class PublicacionController extends Controller
                 ->withInput();
         }else{
           $pub = Publicacion::find($request->id);
-
+          $pub->user_id=$request->user()->id;
+          $pub->anonimo= $request->anonimo;
           $pub->titulo= $request->titulo;
           $pub->contenido= $request->contenido;
           $pub->save();
@@ -153,10 +154,17 @@ class PublicacionController extends Controller
 	{
 		$publicacion = Publicacion::findOrFail($id);
 		$comentarios=Comentario::where('publicacion_id',$id)->get();
-
+        $usuarios = User::all() ;
+        $usuario="";
+        foreach ($usuarios as $usuario1){
+            if ($usuario1->id == $publicacion->id){
+                $usuario= $usuario1->name;
+            }
+        }
 		return view('layouts/publicacion_base',[
 			'publicacion'=>$publicacion,
 			'comentarios'=>$comentarios,
+            "usuario" =>$usuario,
 		]);
 	}
     public function getPublicacionU($id)

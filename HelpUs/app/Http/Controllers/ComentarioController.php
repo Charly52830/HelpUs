@@ -57,9 +57,6 @@ class ComentarioController extends Controller
         $comentario->publicacion_id=$request->publicacion;
         $comentario->save();
         return redirect()->back();
-
-
-
     }
 
 

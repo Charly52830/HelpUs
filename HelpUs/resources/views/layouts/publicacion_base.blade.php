@@ -11,31 +11,57 @@
 			</ul>
 		</div>
 		@endif
+
 		<div class="container">
+            @if ($publicacion->user_id == Auth::user()->id)
+                <div  style="text-align: right;">
+                    <td><a class="btn btn-success cursiva" href= "{{ route('publicaciones.getPublicacionU',$publicacion->id) }} "> Modificar Post </a></td>
+                    <td><a type="delete" class="btn btn-danger cursiva" href= "{{ route('publicaciones.delete', $publicacion->id) }}"> Eliminar Post </a></td>
+                </div>
+            @endif
+            <hr>
+            @if ($publicacion->anonimo==1)
+                <div class="row">
+                    <h3 class="text-center cursiva">Publicado por: </h3>
+                    <label class="text-center">Anonimo</label>
+                </div>
+                @else
+                    <div class="row">
+                        <label class="text-center cursiva">Publicado por:</label>
+                        <label class="text-center">{{$usuario}}</label>
+                    </div>
+            @endif
 			<div class="row">
+                <h1 class="cursiva">Titulo</h1>
 				<div class="col-md-12 text-center"><h1 class="titulo-post">{{ $publicacion->titulo }} </h1></div>
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center post-fecha"> {{ $publicacion->created_at }} </div>
 			</div>
+            </br>
+
+
+            <hr>
+                </br>
 			<div class="row">
-				<div class="col-md-1"></div>
-				<div class="col-md-10 text-justify contenido-post"> {!! nl2br(e($publicacion->contenido)) !!} </div>
-				<div class="col-md-1"></div>
+                <h3 class="text-center cursiva">Contenido de la Publicación:</h3>
+				<div class="col-md-12 text-justify contenido-post" style="border: #1b1e21"> {!! nl2br(e($publicacion->contenido)) !!} </div>
 			</div>
 		</div>
 		<br>
 		<hr>
+            <h3 class="cursiva">Comentarios a esta publicación:</h3>
 		<div class="row bootstrap snippets">
 			<div class="col-md-12 col-md-offset-12 col-sm-12">
 				<div class="comment-wrapper">
 					<div class="panel panel-info">
 						<div class="panel-body">
 							<ul class="media-list">
+
 								@foreach ($comentarios as $comentario)
 								<li class="media">
 									<a href="#" class="pull-left">
-										<img class="img-responsive user-photo" 
+										<img class="img-responsive user-photo"
 										src="https://c.disquscdn.com/uploads/users/11626/2212/avatar92.jpg?1406657745">&nbsp;&nbsp;
 									</a>
 									<div class="media-body">
@@ -56,6 +82,9 @@
 								<textarea class="form-control" name="contenido" id="contenido" ></textarea>
 								<br>
 								<button type="submit"  class="btn btn-light btn-nuevo">Publicar</button>
+
+
+
 							</form>
 							<div class="clearfix"></div>
 						</div>

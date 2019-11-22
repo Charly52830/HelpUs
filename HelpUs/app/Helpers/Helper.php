@@ -6,6 +6,10 @@
  *	https://weichie.com/blog/curl-api-calls-with-php/
  * */
 
+
+use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+
 if (!function_exists('start_bot_session')) {
 	/**
 	 * Inicia una nueva conversación con el HelpUsBot. La sesión es inicializada
@@ -15,39 +19,17 @@ if (!function_exists('start_bot_session')) {
 	 *
 	 * */
 	function start_bot_session() {
-		$curl = curl_init();
-		
-		// Llamada através de POST
-		curl_setopt($curl,CURLPOST,1);
-		
-		//Api Key de Watson.
-		$api_key = 'DehLPXzb1FXnyb0gbHaZkJMEoXbql-nzMmxsOl0lBmFM';
-		
-		//ID del bot en la nube.
-		$assistant_id = '9c1c426d-cd33-49ec-a3bc-f0835c3264b5';
-		
-		//URL del servicio.
-		$url = 'https://gateway.watsonplatform.net/assistant/api/v2/assistants/'.$assistant_id.'/sessions?version=2019-02-28';
-		curl_setopt($curl,CURLOPT_URL,$url);
-		
-		//Header de la petición.
-		curl_setopt($curl, CURLOPT_HTTPHEADER,array(
-			'APIKEY: '.$api_key,
-			'Content-type: application/json',
-		));
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);
-		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-		
-		//Ejecución
-		$result=curl_exec($curl);
-		if (!$result)
-			return "Ocurrió un problema porque el resultado está vacío.";
-		
-		curl_close($curl);
-		$response = json_decode($result,true);
-		$session_id = $response['session_id'];
-		
-		return $session_id;
+		if(!isset($_COOKIE['botsesion'])) {
+			echo "jaja";
+			$client = new Client();
+			$response = $client->request('GET', 'http://148.72.65.115:8080/servicio/chat');
+			//$statusCode = $response->getStatusCode();
+			$body = $response->getBody();
+			$arregloRespuesta = json_decode($body,true);
+			$idsesion= $arregloRespuesta["mensaje"];
+			setcookie('botsesion',$idsesion,time()+3000);
+		}
+		return View::make('layouts.bot');
 	}
 }
 

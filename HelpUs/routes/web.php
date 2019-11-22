@@ -23,9 +23,15 @@ Route::post('/crear_post',[
 	'as'=>'publicacion.create'
 ]);
 
+/*
 Route::get('/bot', function() {
 	return View::make('layouts.bot');
 })->name('bot');
+*/
+
+Route::get('/start_bot', function() {
+	return start_bot_session();
+})->name('start_bot');
 
 /*
 *	Rutas de Zorrilla

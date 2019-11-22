@@ -107,6 +107,16 @@
 	font-size: 0.9rem;
 }
 
-.bot-main {
-	.padding-bottom:100px;
+.bot-footer {
+	background-color:red;
+}
+
+.bot-content {
+	margin-top:3rem;
+	margin-bottom:1rem;
+}
+
+.row-bot {
+	padding-top:10px;
+	padding-bottom:10px;
 }

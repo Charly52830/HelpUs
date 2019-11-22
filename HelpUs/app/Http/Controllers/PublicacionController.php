@@ -72,9 +72,8 @@ class PublicacionController extends Controller
 		$publicacion->save();
 		return redirect('/foro');
 	}
-	public  function  update(Request $request,Publicacion $publicacion)
+	public  function  update(Request $request)
     {
-        /*
         $mensajeError = [
             'required' => 'Porfavor ingresa todos los datos de la publicacion',
         ];
@@ -87,27 +86,21 @@ class PublicacionController extends Controller
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
-        }*/
+        }else{
+          $pub = Publicacion::find($request->id);
 
-        $publicacion2=new Publicacion();
-        $publicacion2->id=$publicacion->id;
-
-        $publicacion2->user_id=$request->user()->id;
-        $publicacion2->titulo=$request->titulo;
-        $publicacion2->contenido=$request->contenido;
-        $publicacion2->anonimo=$request->anonimo;
-        // Guardamos en base de datos
-        Publicacion::destroy($publicacion);
-        $publicacion2->save();
-        return redirect('/foro');
-
-
+          $pub->titulo= $request->titulo;
+          $pub->contenido= $request->contenido;
+          $pub->save();
+          return redirect()->to('user_post/'.$request->user_id);
+        }
     }
     public function destroy($id){
         $publicacion = Publicacion::findOrFail($id);
         $publicacion->delete();
         /*Flash::Danger('Publicación ' . $publicacion->titulo .'Fue eliminada');*/
-        return redirect('/user_post/'.$publicacion->user_id.'');
+        //return redirect('/user_post/'.$publicacion->user_id.'');
+        return redirect()->to('user_post/'.$publicacion->user_id);
     }
 
 	/**

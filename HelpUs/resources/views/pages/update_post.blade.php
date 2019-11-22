@@ -33,7 +33,6 @@
                     <form action="{{route('publicaciones.update','$publicacion')}}" method="post">
                         @csrf
                         <div class="row">
-                            {{$publicacion->id}}
                             <input type="checkbox" class="form-check-input " name="anonimo" id="anonimo" checked="{{$publicacion->anonimo}}" value="1">¿Quieres publicarlo de manera anonima?</br>
                         </div>
                         <div class="form-group">
@@ -44,6 +43,12 @@
                             <label for="titulo" class="cursiva">Escribe aquí</label>
                             <textarea class="form-control" name="contenido" id="contenido" rows="3" required>{{$publicacion->contenido }}</textarea>
                         </div>
+												<input name="id" id="id" hidden value="{{$publicacion->id}}"></input>
+												<input name="user_id" id="user_id" hidden value="{{$publicacion->user_id}}"></input>
+
+
+
+
                         <button type="submit" class="btn btn-light btn-nuevo">Modificar</button>
                     </form>
                 @endguest

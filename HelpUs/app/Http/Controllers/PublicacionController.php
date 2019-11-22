@@ -6,8 +6,9 @@ use App\Publicacion;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use App\Comentario;
+use Illuminate\Queue\RedisQueue;
 use Illuminate\Support\Facades\Validator;
-
+use Symfony\Component\HttpFoundation\Session\Flash;
 
 class PublicacionController extends Controller
 {
@@ -71,6 +72,43 @@ class PublicacionController extends Controller
 		$publicacion->save();
 		return redirect('/foro');
 	}
+	public  function  update(Request $request,Publicacion $publicacion)
+    {
+        /*
+        $mensajeError = [
+            'required' => 'Porfavor ingresa todos los datos de la publicacion',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'titulo' => 'required|max:255',
+            'contenido' => 'required'
+        ],$mensajeError);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }*/
+
+        $publicacion2=new Publicacion();
+        $publicacion2->id=$publicacion->id;
+
+        $publicacion2->user_id=$request->user()->id;
+        $publicacion2->titulo=$request->titulo;
+        $publicacion2->contenido=$request->contenido;
+        $publicacion2->anonimo=$request->anonimo;
+        // Guardamos en base de datos
+        Publicacion::destroy($publicacion);
+        $publicacion2->save();
+        return redirect('/foro');
+
+
+    }
+    public function destroy($id){
+        $publicacion = Publicacion::findOrFail($id);
+        $publicacion->delete();
+        /*Flash::Danger('Publicación ' . $publicacion->titulo .'Fue eliminada');*/
+        return redirect('/user_post/'.$publicacion->user_id.'');
+    }
 
 	/**
 	* Store a newly created resource in storage.
@@ -93,7 +131,12 @@ class PublicacionController extends Controller
 	{
 		//
 	}
-
+    public function confirmar_delete(Publicacion $publicacion)
+    {$publicaciones=Publicacion::all();
+        return view('pages/delete_confirm_post',[
+            'publicacion'=>$publicacion,
+        ]);
+    }
 	/**
 	* Display all instances of the database
 	*
@@ -123,6 +166,14 @@ class PublicacionController extends Controller
 			'comentarios'=>$comentarios,
 		]);
 	}
+    public function getPublicacionU($id)
+    {
+        $publicacion = Publicacion::findOrFail($id);
+
+        return view('pages/update_post',[
+            'publicacion'=>$publicacion,
+        ]);
+    }
 	public  function getPublicacionesUser($idUser){
         $publicacionUser = Publicacion::where('user_id',$idUser)->get();
         return view('pages/foro_usuario',[
@@ -148,10 +199,7 @@ class PublicacionController extends Controller
 	* @param  \App\Publicacion  $publicacion
 	* @return \Illuminate\Http\Response
 	*/
-	public function update(Request $request, Publicacion $publicacion)
-	{
-		//
-	}
+
 
 	/**
 	* Remove the specified resource from storage.
@@ -159,8 +207,5 @@ class PublicacionController extends Controller
 	* @param  \App\Publicacion  $publicacion
 	* @return \Illuminate\Http\Response
 	*/
-	public function destroy(Publicacion $publicacion)
-	{
-		//
-	}
+
 }

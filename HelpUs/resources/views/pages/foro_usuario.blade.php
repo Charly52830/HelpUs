@@ -32,6 +32,7 @@
                 <th scope="col">Usuario</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Respuestas</th>
+                <th></th>
             </tr>
             </thead>
             @guest
@@ -40,10 +41,14 @@
             <tbody>
             @foreach($publicacionUser as $publicacion)
                 <tr>
-                    <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}  " >{{ $publicacion->titulo }}</a></td>
+                    <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}" >{{ $publicacion->titulo }}</a></td>
                     <td></td>
                     <td>{{$publicacion->create_at}}</td>
                     <td></td>
+                    @if ($publicacion->user_id == Auth::user()->id)
+                        <td><a class="btn btn-success" href= "{{ route('publicaciones.getPublicacionU',$publicacion->id) }}"> Modificar Post </a></td>
+                        <td><a type="delete" class="btn btn-danger" href= "{{ route('publicaciones.delete', $publicacion->id) }}"> Eliminar Post </a></td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

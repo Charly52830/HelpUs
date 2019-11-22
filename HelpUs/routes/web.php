@@ -20,14 +20,39 @@ Route::get('/nuevo_post', function() {
 	return View::make('pages.nuevo_post');
 })->name('foro.nuevo');
 
-Route::post('/crear_post',[
+Route::post('/crear_postU',[
 	'uses'=>'PublicacionController@create',
 	'as'=>'publicacion.create'
+]);
+
+Route::post('/crear_post',[
+    'uses'=>'PublicacionController@createU',
+    'as'=>'publicacion.createU'
 ]);
 
 Route::get('/user_post/{id}',[
     'uses'=>'PublicacionController@getPublicacionesUser',
     'as'=>'publicaciones.getPostU'
+])->middleware('auth');
+
+Route::get('/update_post/{id}', [
+    'uses'=>'PublicacionController@getPublicacionU',
+	'as'=>'publicaciones.getPublicacionU'
+])->middleware('auth');
+
+Route::post('/update/{post}',[
+    'uses'=>'PublicacionController@update',
+    'as'=>'publicaciones.update'
+])->middleware('auth');
+
+Route::get('/delete_confirm/{publicacion}', [
+    'uses'=>'PublicacionController@confirmar_delete',
+	'as'=>'publicacion.confirmar_borrar'
+]);
+
+Route::get('/foro/{id}/delete/',[
+    'uses'=>'PublicacionController@destroy',
+    'as'=>'publicaciones.delete'
 ])->middleware('auth');
 
 /*

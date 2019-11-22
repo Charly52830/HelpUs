@@ -32,6 +32,8 @@
                 <th scope="col">Usuario</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Respuestas</th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             @guest

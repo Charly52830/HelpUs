@@ -6,6 +6,7 @@
 	<body class="container-principal">
 		<header>
 			@include('includes.header')
+			<meta name="csrf-token" content="{{ csrf_token() }}" />
 		</header>
 		<div class="container">
 			<div id="main" class="container">

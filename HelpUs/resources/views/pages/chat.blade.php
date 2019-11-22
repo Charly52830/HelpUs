@@ -1,5 +1,6 @@
 @extends('layouts.base')
 @section('content')
+
 <div class="card grey lighten-3 chat-room">
   <div class="card-body">
 
@@ -29,7 +30,7 @@
                   <input type="hidden" name="idsesion" value="{{$sessionid}}"
                   id="idsesion"  >
                 </div>
-                <button type="submit"  class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Enviar</button>
+                <button type="submit" id="ajaxSubmit" class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Enviar</button>
               </form>
             </li>
 
@@ -45,3 +46,30 @@
   </div>
 </div>
 @stop
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+</script>
+<script>
+         jQuery(document).ready(function(){
+            jQuery('#ajaxSubmit').click(function(e){
+               e.preventDefault();
+               jQuery.ajax({
+                  url: "/mensaje",
+                  method: 'post',
+                  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                  data: {
+                     pregunta: jQuery('#pregunta').val(),
+                     idsesion: jQuery('#idsesion').val(),
+                  },
+                  success: function(result){
+                    //var myObj =  JSON.parse(result)
+                    console.log(result.respuesta);
+                     //console.log(result);
+
+                  }});
+               });
+            });
+</script>

@@ -77,14 +77,7 @@ class PublicacionController extends Controller
 	*/
 	public function show_all()
 	{
-    if (isset($_COOKIE['botsesion'])) {
-      $id=$_COOKIE['botsesion'];
-      echo "destrui sesion ".$id;
-      $client = new Client();
-      $response = $client->request('GET', 'http://148.72.65.115:8080/sesion?sessionId='.$id);
-      setcookie("botsesion", "", time() - 3600);
-
-    }
+    
 		$publicaciones=Publicacion::all();
 		return view('pages/foro',['publicaciones'=>$publicaciones]);
 	}

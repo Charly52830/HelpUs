@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 
 class BotController extends Controller
 {
-  
+
   private $mensajes = array();
   public function chat(){
     if (isset($_COOKIE['botsesion'])) {
@@ -15,8 +15,8 @@ class BotController extends Controller
       $client = new Client();
       $response = $client->request('GET', 'http://148.72.65.115:8080/servicio/sesion?sessionId='.$id);
       setcookie("botsesion", "", time() - 3600);
-
     }
+
     $client = new Client();
     $response = $client->request('GET', 'http://148.72.65.115:8080/servicio/chat');
     $statusCode = $response->getStatusCode();

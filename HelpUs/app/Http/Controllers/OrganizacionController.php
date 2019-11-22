@@ -24,7 +24,7 @@ class OrganizacionController extends Controller
         $id=$_COOKIE['botsesion'];
         echo "destrui sesion ".$id;
         $client = new Client();
-        $response = $client->request('GET', 'http://localhost:8080/sesion?sessionId='.$id);
+        $response = $client->request('GET', 'http://148.72.65.115:8080/sesion?sessionId='.$id);
         setcookie("botsesion", "", time() - 3600);
 
       }

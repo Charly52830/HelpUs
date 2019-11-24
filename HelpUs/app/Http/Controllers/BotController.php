@@ -7,26 +7,20 @@ use GuzzleHttp\Client;
 
 class BotController extends Controller
 {
-	public function chat()
-	{    
-		if(!isset($_COOKIE['botsesion'])) {
-			$client = new Client();
-			$response = $client->request('GET', 'http://148.72.65.115:8080/servicio/chat');
-			//$statusCode = $response->getStatusCode();
-			$body = $response->getBody();
-			$arregloRespuesta = json_decode($body,true);
-			$idsesion= $arregloRespuesta["mensaje"];
-			setcookie('botsesion',$idsesion,time()+3000);
-		}
-		//$idsesion = $_COOKIE['botsesion'];
-		//return view('layouts/bot');
-		return View::make('layouts.bot');
-	}
-	
+	/**
+	 * Envía un nuevo mensaje al bot continuando con la sesión previa. 
+	 * El mensaje es enviado través de una solicitud GET a un servicio web
+	 * que sirve como middleware para comunicarse con el servicio de Watson.
+	 *
+	 * @param string $mensaje
+	 * Mensaje que el usuario le escribe al bot.
+	 * 
+	 * @return string Json con el contenido del mensaje.
+	 * */
 	public function respuesta(Request $request)
 	{
 		$url = "http://148.72.65.115:8080/servicio/message?mensaje=%s&sessionId=%s";
-		$mensaje = $request->pregunta;
+		$mensaje = $request -> pregunta;
 		$id_sesion = $_COOKIE['botsesion'];
 		$client = new Client();
 		$response = $client->request('GET', sprintf($url, $mensaje, $id_sesion));

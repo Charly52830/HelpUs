@@ -52,16 +52,18 @@ Route::get('/organizaciones',[
 	'as'=>'organizaciones.infoGeneral'
 ]);
 
-/*
+Route::get('/bot', function() {
+	return View::make('layouts.bot');
+})->name('bot');
+
 Route::get('/start_bot', function() {
 	return start_bot_session();
 })->name('start_bot');
 
-
-
-Route::get('/bot', function() {
-	return View::make('layouts.bot');
-})->name('bot');
+/*
+Route::get('/start_bot', function() {
+	return start_bot_session();
+})->name('start_bot');
 
 
 Route::get('/test_bot/{mensaje}', function($mensaje) {

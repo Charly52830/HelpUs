@@ -18,22 +18,18 @@ class BotController extends Controller
 			$idsesion= $arregloRespuesta["mensaje"];
 			setcookie('botsesion',$idsesion,time()+3000);
 		}
+		//$idsesion = $_COOKIE['botsesion'];
+		//return view('layouts/bot');
 		return View::make('layouts.bot');
 	}
 	
 	public function respuesta(Request $request)
 	{
-		if(isset($_COOKIE['botsesion'])) {
-			$id_sesion = $_COOKIE['botsesion'];
-			$mensaje = $request->pregunta;
-			$url = "http://148.72.65.115:8080/servicio/message?mensaje=%s&sessionId=%s";
-			$client = new Client();
-			$response = $client->request('GET', sprintf($url,$mensaje,$id_sesion));
-			//$statusCode = $response->getStatusCode();
-			$arreglo_respuesta = json_decode($response->getBody(),true);
-			return $arreglo_respuesta['respuesta']; 
-		}
-		else
-			return "Error: sesión no iniciada correctamente";
+		$url = "http://148.72.65.115:8080/servicio/message?mensaje=%s&sessionId=%s";
+		$mensaje = $request->pregunta;
+		$id_sesion = $_COOKIE['botsesion'];
+		$client = new Client();
+		$response = $client->request('GET', sprintf($url, $mensaje, $id_sesion));
+		return json_decode($response->getBody(), true);
 	}
 }

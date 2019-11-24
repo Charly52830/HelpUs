@@ -42,7 +42,12 @@
             @foreach($publicacionUser as $publicacion)
                 <tr>
                     <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}" >{{ $publicacion->titulo }}</a></td>
-                    <td></td>
+                    @if ($publicacion->anonimo==1)
+                        <td>Anonimo</td>
+                    @else
+                        <td>{{Auth::user()->name}}</td>
+                    @endif
+
                     <td>{{$publicacion->create_at}}</td>
                     <td></td>
                     @if ($publicacion->user_id == Auth::user()->id)

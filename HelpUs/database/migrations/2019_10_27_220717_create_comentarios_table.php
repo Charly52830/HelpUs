@@ -19,6 +19,7 @@ class CreateComentariosTable extends Migration
             $table->text('respuesta');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('anonimo')->default(false)->nullable();
             $table->timestamps();
         });
     }

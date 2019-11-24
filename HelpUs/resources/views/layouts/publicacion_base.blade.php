@@ -13,14 +13,20 @@
 		@endif
 
 		<div class="container">
-            @if ($publicacion->user_id == Auth::user()->id)
-                <div  style="text-align: right;">
-                    <td><a class="btn btn-success cursiva" href= "{{ route('publicaciones.getPublicacionU',$publicacion->id) }} "> Modificar Post </a></td>
-                    <td><a type="delete" class="btn btn-danger cursiva" href= "{{ route('publicaciones.delete', $publicacion->id) }}"> Eliminar Post </a></td>
-                </div>
-            @endif
+            @guest
+
+            @else
+                @if ($publicacion->user_id == Auth::user()->id)
+                    <div  style="text-align: right;">
+                        <td><a class="btn btn-success cursiva" href= "{{ route('publicaciones.getPublicacionU',$publicacion->id) }} "> Modificar Post </a></td>
+                        <td><a type="delete" class="btn btn-danger cursiva" href= "{{ route('publicaciones.delete', $publicacion->id) }}"> Eliminar Post </a></td>
+                    </div>
+
+                @endif
+            @endguest
+
             <hr>
-            @if ($publicacion->anonimo==1)
+            @if ($publicacion->anonimo==1 || empty($publicacion->user_id))
                 <div class="row">
                     <h3 class="text-center cursiva">Publicado por: </h3>
                     <label class="text-center">Anonimo</label>
@@ -68,24 +74,49 @@
 										<span class="text-muted pull-right">
 											<small class="text-muted">{{$comentario->created_at}}</small>
 										</span>
-										<strong class="text-success">Anónimo</strong>
+
+                                            @if ( empty($comentarioName[$comentario->user_id]))
+                                                <td><strong class="text-success">Anonimo</strong></td>
+                                            @else
+                                                @if ($comentario->anonimo==1 || empty($comentario->user_id))
+                                                    <td><strong class="text-success">Anonimo</strong></td>
+                                                @else
+                                                    <td><strong class="text-success">{{$comentarioName[$comentario->user_id]}}</strong></td>
+                                                @endif
+
+                                            @endif
+
+
 										<p>{!!nl2br(e($comentario->respuesta)) !!}</p>
 									</div>
 								</li>
 								<br>
 								@endforeach
 							</ul>
-							<form action="{{route('comentario.store')}}" method="post">
-								@csrf
-								<input type="hidden" name="publicacion" value="{{$publicacion->id}}"
-								id="publicacion"  >
-								<textarea class="form-control" name="contenido" id="contenido" ></textarea>
-								<br>
-								<button type="submit"  class="btn btn-light btn-nuevo">Publicar</button>
+                            @guest
+                                <form action="{{route('comentario.store')}}" method="post">
+                                    @csrf
 
+                                    <input type="hidden" name="publicacion" value="{{$publicacion->id}}"
+                                           id="publicacion"  >
+                                    <textarea class="form-control" name="contenido" id="contenido" ></textarea>
+                                    <br>
+                                    <button type="submit"  class="btn btn-light btn-nuevo">Publicar</button>
+                                </form>
+                            @else
+                                <form action="{{route('comentario.createU')}}" method="post">
+                                    @csrf
 
+                                    <input type="hidden" name="publicacion" value="{{$publicacion->id}}"
+                                           id="publicacion"  >
+                                    <textarea class="form-control" name="contenido" id="contenido" ></textarea>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input " name="anonimo" id="anonimo" value="1">¿Quieres publicarlo de manera anonima?</br>
+                                    <button type="submit"  class="btn btn-light btn-nuevo">Publicar</button>
+                                </form>
 
-							</form>
+                            @endguest
+
 							<div class="clearfix"></div>
 						</div>
 					</div>

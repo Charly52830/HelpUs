@@ -71,6 +71,10 @@ Route::post('/publicacion/comentario',[
 	'uses'=>'ComentarioController@store',
 	'as'=>'comentario.store'
 ]);
+Route::post('/publicacion/comentarioU',[
+    'uses'=>'ComentarioController@createU',
+    'as' => 'comentario.createU',
+    ]);
 
 //Rutas de Ángel.
 

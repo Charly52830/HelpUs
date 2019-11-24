@@ -72,6 +72,13 @@ class PublicacionController extends Controller
 		$publicacion->save();
 		return redirect('/foro');
 	}
+	public function destroy($id){
+    $publicacion = Publicacion::findOrFail($id);
+    $publicacion->delete();
+    /*Flash::Danger('Publicación ' . $publicacion->titulo .'Fue eliminada');*/
+    //return redirect('/user_post/'.$publicacion->user_id.'');
+    return redirect()->to('user_post/'.$publicacion->user_id);
+    }
 	public  function  update(Request $request)
     {
         $mensajeError = [
@@ -88,21 +95,18 @@ class PublicacionController extends Controller
                 ->withInput();
         }else{
           $pub = Publicacion::find($request->id);
-          $pub->user_id=$request->user()->id;
-          $pub->anonimo= $request->anonimo;
-          $pub->titulo= $request->titulo;
-          $pub->contenido= $request->contenido;
-          $pub->save();
+          $pub::destroy($request->id);
+          $pub2=new Publicacion();
+          $pub2->id=$request->id;
+          $pub2->user_id=$request->user()->id;
+          $pub2->anonimo= $request->anonimo;
+          $pub2->titulo= $request->titulo;
+          $pub2->contenido= $request->contenido;
+          $pub2->save();
           return redirect()->to('user_post/'.$request->user_id);
         }
     }
-    public function destroy($id){
-        $publicacion = Publicacion::findOrFail($id);
-        $publicacion->delete();
-        /*Flash::Danger('Publicación ' . $publicacion->titulo .'Fue eliminada');*/
-        //return redirect('/user_post/'.$publicacion->user_id.'');
-        return redirect()->to('user_post/'.$publicacion->user_id);
-    }
+
 
 	/**
 	* Store a newly created resource in storage.
@@ -138,9 +142,30 @@ class PublicacionController extends Controller
 	*/
 	public function show_all()
 	{
-		$publicaciones=Publicacion::all();
+	    $publicaciones=Publicacion::all();
+	    $comentarios = Comentario::all();
+        $arrayNC = array();
+        $publicacionName= array();
+        foreach ($publicaciones as  $publicacionN){
+            $comentariosP = Comentario::where('publicacion_id',$publicacionN->id)->get();
+            $comentariosC=0;
+            foreach ($comentariosP as $cantidad){
+                $comentariosC+=1;
+            }
+            $arrayNC[$publicacionN->id] = $comentariosC;
+            $users = User::all();
+            $user=new User();
+            foreach ($users as $userI){
+                if ($publicacionN->user_id == $userI->id);
+                    $user=$userI;
+            }
+            $publicacionName[$publicacionN->id] = ''.$user->name.'';
+        }
+
 		return view('pages/foro',[
 		    'publicaciones'=>$publicaciones,
+            'arrayC'=>$arrayNC,
+            'arrayN'=>$publicacionName,
         ]);
 	}
 
@@ -156,6 +181,17 @@ class PublicacionController extends Controller
 		$comentarios=Comentario::where('publicacion_id',$id)->get();
         $usuarios = User::all() ;
         $usuario="";
+        $comentarioName= array();
+        foreach ($comentarios as $comentarioN) {
+            $users = User::all();
+            $user=new User();
+            foreach ($users as $userI){
+                if ($comentarioN->user_id == $userI->id);
+                $user=$userI;
+            }
+            $comentarioName[$comentarioN->user_id]=$user->name;
+        }
+
         foreach ($usuarios as $usuario1){
             if ($usuario1->id == $publicacion->id){
                 $usuario= $usuario1->name;
@@ -165,6 +201,7 @@ class PublicacionController extends Controller
 			'publicacion'=>$publicacion,
 			'comentarios'=>$comentarios,
             "usuario" =>$usuario,
+            'comentarioName' =>$comentarioName,
 		]);
 	}
     public function getPublicacionU($id)

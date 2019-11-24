@@ -47,9 +47,23 @@
             @foreach($publicaciones as $publicacion)
                 <tr>
                     <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}  " >{{ $publicacion->titulo }}</a></td>
-                    <td>{{$publicacion->user_id}}</td>
-                    <td class="text-center post-fecha">{{$publicacion->update_at}}</td>
-                    <td></td>
+                    @if ( !empty($arryN[$publicacion->id]))
+                        <td>Anonimo</td>
+                    @else
+                        @if ($publicacion->anonimo==1)
+                            <td>Anonimo</td>
+                        @else
+                            <td>{{$arrayN[$publicacion->id]}}</td>
+                        @endif
+
+                    @endif
+                    <td class="text-center post-fecha" >{{$publicacion->update_at}}</td>
+                    @if ( empty($arrayC[$publicacion->id]))
+                        <td>0</td>
+                    @else
+                        <td>{{$arrayC[$publicacion->id]}} </td>
+                    @endif
+
                 </tr>
             @endforeach
             </tbody>

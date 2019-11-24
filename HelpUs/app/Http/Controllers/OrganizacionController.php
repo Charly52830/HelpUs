@@ -95,4 +95,10 @@ class OrganizacionController extends Controller
     {
         //
     }
+    
+    public function call_watson(Request $request)
+    {
+		$mensaje = $request->mensaje;
+		return bot_api_call($mensaje);
+    }
 }

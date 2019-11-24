@@ -23,15 +23,10 @@ Route::post('/crear_post',[
 	'as'=>'publicacion.create'
 ]);
 
-/*
-Route::get('/bot', function() {
-	return View::make('layouts.bot');
-})->name('bot');
-*/
+// Bot
 
-Route::get('/start_bot', function() {
-	return start_bot_session();
-})->name('start_bot');
+Route::post('/mensaje','BotController@respuesta' )->name('bot.respuesta');
+Route::get('/chat','BotController@chat' )->name('bot.chat');
 
 /*
 *	Rutas de Zorrilla
@@ -56,3 +51,27 @@ Route::get('/organizaciones',[
 	'uses'=>'OrganizacionController@index',
 	'as'=>'organizaciones.infoGeneral'
 ]);
+
+/*
+Route::get('/start_bot', function() {
+	return start_bot_session();
+})->name('start_bot');
+
+
+
+Route::get('/bot', function() {
+	return View::make('layouts.bot');
+})->name('bot');
+
+
+Route::get('/test_bot/{mensaje}', function($mensaje) {
+	return bot_api_call($mensaje);
+});
+
+/*
+Route::post('/mensaje', [
+	'uses'=>'Organizaciones@call_watson',
+	'as'=>'mensaje'
+]);
+*/
+

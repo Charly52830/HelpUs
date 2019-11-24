@@ -7,6 +7,8 @@
 		<!-- Códigos personales -->
 		<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 	
+		<meta name="csrf-token" content="{{ csrf_token() }}" />
+	
 	</head>
 	<body>
 		<div class="container">
@@ -16,44 +18,32 @@
 				</nav>
 			</div>
 			<div class="row bot-content">
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				<h1>Este es un mensaje desde la plantilla del bot</h1>
-				
+				<div id="chat-bot"></div>
 			</div>
 			<div class="row">
 				<hr>
 				<div class="container-fluid fixed-bottom bot-footer">					
 					<div class="row row-bot">
 						<div class="col-8">
-							<textarea class="form-control" name="mensaje" id="mensaje" rows="1"></textarea>
+							<textarea class="form-control" name="textarea-message" id="textarea-message" rows="1"></textarea>
 						</div>
 						<div class="col-4">
-							<button type="button" class="btn btn-primary text-right">Enviar</button>
+							<button type="button" class="btn btn-primary text-right" onclick="writeMessage()">Enviar</button>
 						</div>
 					</div>
 				</div>
 			</div> <!-- Fin row -->
 		</div>		
 		<footer>
+			<!-- Codigo fuente de JQuery -->
+			<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+		
 			<!-- Estilos de bootstrap -->
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+			
+			<!-- Funciones personales-->
+			<script src="{{ asset('js/main.js') }}"></script>
+			
 		</footer>
 	</body>
 	

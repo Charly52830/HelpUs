@@ -1,5 +1,10 @@
 <?php
 
+/**
+*	Autor: Carlos Ruvalcaba, Fernando Acosta.
+*	Fecha: 24/11/2019
+*/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

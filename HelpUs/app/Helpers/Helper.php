@@ -1,6 +1,9 @@
 <?php
 
 /**
+ *	Autor: Carlos Ruvalcaba
+ *	Fecha: 24/11/2019
+ *
  *	Fuentes:
  *	https://tutsforweb.com/creating-helpers-laravel/
  *	https://weichie.com/blog/curl-api-calls-with-php/

@@ -23,6 +23,16 @@ Route::post('/crear_post',[
 	'as'=>'publicacion.create'
 ]);
 
+/**
+*	Rutas del bot
+*/ 
+
+Route::post('/mensaje','BotController@respuesta' )->name('bot.respuesta');
+
+Route::get('/start_bot', function() {
+	return start_bot_session();
+})->name('start_bot');
+
 /*
 *	Rutas de Zorrilla
 */

@@ -1,3 +1,8 @@
+			<div class="container-fluid fixed-bottom text-right">
+				<div id="botIFrame">
+					<button type="button" class="btn btn-info" onclick="displayIframe()">Habla con Perry</button>
+				</div>
+			</div>
 			<hr>
 			<div class="container myfooter">
 				<div class="row">
@@ -17,9 +22,11 @@
 				</div>
 			</div>
 			
-			<!-- Codigo fuente de bootstrap -->
+			<!-- Codigo fuente de JQuery -->
 			<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 
 			<!-- Codigo fuente de bootstrap -->
 			<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
+			<!-- Funciones personales-->
+			<script src="{{ asset('js/main.js') }}"></script>

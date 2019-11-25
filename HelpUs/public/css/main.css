@@ -87,13 +87,11 @@
 }
 */
 
-/*
 .org-header {
 	background-image: url("../img/PurpleBackground.jpeg");
 	background-repeat:no-repeat;
 	background-size:cover;
 }
-*/
 
 .helpus-font-2 {
 	font-family: "source-sans-pro", Helvetica, Arial, sans-serif;
@@ -107,3 +105,16 @@
 	font-size: 0.9rem;
 }
 
+.bot-footer {
+	background-color: #e3f2fd	 ;
+}
+
+.bot-content {
+	margin-top:4rem;
+	margin-bottom:1.5rem;
+}
+
+.row-bot {
+	padding-top:10px;
+	padding-bottom:10px;
+}

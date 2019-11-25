@@ -55,6 +55,16 @@ Route::get('/foro/{id}/delete/',[
     'as'=>'publicaciones.delete'
 ])->middleware('auth');
 
+/**
+*	Rutas del bot
+*/ 
+
+Route::post('/mensaje','BotController@respuesta' )->name('bot.respuesta');
+
+Route::get('/start_bot', function() {
+	return start_bot_session();
+})->name('start_bot');
+
 /*
 *	Rutas de Zorrilla
 */

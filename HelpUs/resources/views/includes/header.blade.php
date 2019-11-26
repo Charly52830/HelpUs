@@ -8,13 +8,13 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<ul class="navbar-nav">
-			<li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+			<li class="nav-item {{ Request::is('/')||Request::is('acoso/*') ? 'active' : '' }}">
 				<a class="nav-link" href="{{ route('acoso.informacionGeneral') }}">Home<span class="sr-only"></span></a>
 			</li>
 			<li class="nav-item {{ Request::is('organizaciones') ? 'active' : '' }}">
 				<a class="nav-link" href="{{ route('organizaciones.infoGeneral') }}">Organizaciones</a>
 			</li>
-			<li class="nav-item {{ Request::is('foro') ? 'active' : '' }}">
+			<li class="nav-item {{ Request::is('foro')||Request::is('publicacion/*')||Request::is('nuevo_post') ? 'active' : '' }}">
 				<a class="nav-link" href="{{ route('publicaciones.show_all') }}">Foro</a>
 			</li>
 		</ul>

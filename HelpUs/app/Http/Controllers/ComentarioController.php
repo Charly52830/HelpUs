@@ -57,9 +57,28 @@ class ComentarioController extends Controller
         $comentario->publicacion_id=$request->publicacion;
         $comentario->save();
         return redirect()->back();
+    }
+    public function createU(Request $request)
+    {
+        $mensajeError = [
+            'required' => 'Se necesita un contenido para la respuesta a la publicación.',
+        ];
+        $validator = Validator::make($request->all(), [
+            'contenido' => 'required'
+        ],$mensajeError);
 
-
-
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $comentario=new Comentario();
+        $comentario->user_id=$request->user()->id;
+        $comentario->respuesta=$request->contenido;
+        $comentario->publicacion_id=$request->publicacion;
+        $comentario->anonimo=$request->anonimo;
+        $comentario->save();
+        return redirect()->back();
     }
 
 

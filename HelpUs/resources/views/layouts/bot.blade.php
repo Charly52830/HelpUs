@@ -23,6 +23,14 @@
 			<!-- Segundo row -->
 			<div class="row bot-content">
 				<div class="container" id="chat-bot">
+					@isset($mensaje_bienvenida)
+						<div class="card text-white bg-info mb-3 text-justify" style="max-width: 18rem;">
+							<div class="card-body">
+								<p class="card-text"> {{ $mensaje_bienvenida }} </p>
+							</div>
+						</div>
+					@endisset
+					<!-- Aquí van los mensajes -->
 				</div>				
 			</div> <!-- Fin segundo row -->
 			

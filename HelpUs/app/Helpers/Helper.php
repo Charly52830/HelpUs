@@ -50,6 +50,9 @@ if (!function_exists('start_bot_session')) {
 	 * */
 	function start_bot_session() {
 		verifica_sesion();
+		if(!isset($_COOKIE['botsesion']))
+			return View::make('layouts.bot',['mensaje_bienvenida' => 'Hola soy Perry, mi trabajo es orientar
+				a las personas para que aprendan cómo enfrentar el acoso y cómo denunciarlo. ¿En qué te puedo ayudar?']);
 		return View::make('layouts.bot');
 	}
 }

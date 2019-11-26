@@ -17,7 +17,10 @@ class CreatePublicacionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->longText('contenido');
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+            $table->boolean('anonimo')->default(false)->nullable();
         });
     }
 

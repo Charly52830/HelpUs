@@ -1,4 +1,16 @@
-/* Estilos personalizados */
+/* #CBCE91FF Estilos personalizados */
+
+.active{
+  color: #fff !important;
+  text-decoration: none;
+  background:    #d2b4de ;
+  border-radius: 50px;
+
+  display: inline-block;
+  border: none;
+}
+
+
 
 .cursiva {
     font-family: "Lora", serif;
@@ -24,9 +36,18 @@
 }
 
 .btn-nuevo {
-    background: #f2f2f2;
-    color:#808080;
-    font-family: "Lora", serif;
+    background:     #16a085 ;
+    color: black;
+
+}
+
+.btn-nuevopost{
+  background:  #52be80;
+  color: white;
+}
+.btn-nuevopost:hover{
+  background:  #7dcea0;
+  color: white;
 }
 
 .col-btn-nuevo {
@@ -34,8 +55,8 @@
 }
 
 .btn-nuevo:hover {
-    background: #d8bfd8;
-    border-color: #d8bfd8;
+    background:   #138d75 ;
+    border-color:  #138d75 ;
     color: white;
 }
 
@@ -47,8 +68,11 @@
 .contenido-post {
     font-family: "Lora", serif;
     font-style: italic;
-    margin-top:15px;	
+    margin-top:15px;
 }
+
+
+
 
 .post-fecha {
 	margin-top:0px;
@@ -62,12 +86,12 @@
 
 .bg-helpus {
 	/* Morado */
-	background-color: #17D5C9;
+	background-color: #7dcea0;
 }
 
 .bg-helpus2 {
 	/* Naranja */
-	background-color: #F28F1E;
+	background-color:  #eb984e ;
 }
 
 .img-card {
@@ -75,8 +99,10 @@
 	width: auto;
 }
 
-.myfooter {	
+.myfooter {
 	padding:10px;
+  position: fixed;
+   bottom: 0px;
 }
 
 /*
@@ -94,16 +120,90 @@
 }
 
 .helpus-font-2 {
-	font-family: "source-sans-pro", Helvetica, Arial, sans-serif;
-	font-style: italic;
-	color: #898a8d;
+	font-family: 'Roboto', sans-serif;
+  color:#494a4a;
+  font-variant: small-caps;
+   text-transform: none;
+   font-weight: 100;
+   margin-bottom: 0;
+   text-align: center;
+
 }
+
+.helpus-font-h2 {
+	font-family: 'Roboto', sans-serif;
+  color:#46a66f;
+  font-variant: small-caps;
+  text-transform: none;
+  font-weight: 100;
+  margin-bottom: 0;
+  text-align: left;
+
+}
+
+.helpus-font-h3 {
+	font-family: 'Roboto', sans-serif;
+  color:#57ab90;
+  font-variant: small-caps;
+  text-transform: none;
+  font-weight: 100;
+  margin-bottom: 0;
+  text-align: left;
+
+}
+
+.helpus-font-fuentes {
+	font-family: 'Roboto', sans-serif;
+  color:#947363;
+  font-variant: small-caps;
+  text-transform: none;
+  font-weight: 100;
+  margin-bottom: 0;
+  text-align: left;
+
+}
+
+
+
+.crop {word-wrap: break-word;white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -webkit-pre-wrap; /*Chrome & Safari */
+    white-space: -pre-wrap;        /* Opera 4-6 */
+    white-space: -o-pre-wrap;      /* Opera 7 */
+    white-space: pre-wrap;         /* CSS3 */
+    word-wrap: break-word;         /* Internet Explorer 5.5+ */
+    word-break: break-all;
+    white-space: normal;}​
+
+.helpus-font-p {
+	font-family: 'Roboto', sans-serif;
+  color:#4c4c4d;
+
+  text-transform: none;
+  font-weight: 100;
+  margin-bottom: 0;
+
+
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+
 
 .helpus-font-3 {
 	font-family:"Vijaya", "source-sans-pro", Helvetica, Arial, sans-serif;
 	font-style:italic;
 	font-size: 0.9rem;
 }
+
+
+
+
 
 .bot-footer {
 	background-color: #e3f2fd	 ;

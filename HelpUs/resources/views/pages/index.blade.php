@@ -1,5 +1,17 @@
 @extends('layouts.base')
 @section('content')
+<div class="container org-header">
+	<div class="row">
+		<div class="col-md-4">
+			<h4 class="helpus-font-2">¡Infórmate!</h4>
+			<h5 class="helpus-font-3">En esta sección puedes encontrar información general del acoso.</h5>
+		</div>
+	</div>
+</div>
+
+<br>
+<hr>
+
 	<h1 class="helpus-font-2">Tipos de acoso</h1>
 	<hr>
 	<div class="card-deck" >

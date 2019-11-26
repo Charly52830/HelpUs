@@ -72,6 +72,7 @@ class PublicacionController extends Controller
 		$publicacion->save();
 		return redirect('/foro');
 	}
+
 	public function destroy($id){
     $publicacion = Publicacion::findOrFail($id);
     $publicacion->delete();
@@ -79,6 +80,7 @@ class PublicacionController extends Controller
     //return redirect('/user_post/'.$publicacion->user_id.'');
     return redirect()->to('user_post/'.$publicacion->user_id);
     }
+
 	public  function  update(Request $request)
     {
         $mensajeError = [
@@ -143,7 +145,6 @@ class PublicacionController extends Controller
 	public function show_all()
 	{
 	    $publicaciones=Publicacion::all();
-	    $comentarios = Comentario::all();
         $arrayNC = array();
         $publicacionName= array();
         foreach ($publicaciones as  $publicacionN){
@@ -157,9 +158,9 @@ class PublicacionController extends Controller
             $user=new User();
             foreach ($users as $userI){
                 if ($publicacionN->user_id == $userI->id);
-                    $user=$userI;
+                    $publicacionName[$userI->id] = ''.$userI->name.'';
             }
-            $publicacionName[$publicacionN->id] = ''.$user->name.'';
+
         }
 
 		return view('pages/foro',[

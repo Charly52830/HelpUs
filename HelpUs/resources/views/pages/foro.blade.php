@@ -47,13 +47,13 @@
             @foreach($publicaciones as $publicacion)
                 <tr>
                     <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}  " >{{ $publicacion->titulo }}</a></td>
-                    @if ( !empty($arryN[$publicacion->id]))
+                    @if ( !empty($arryN[$publicacion->user_id]))
                         <td>Anonimo</td>
                     @else
                         @if ($publicacion->anonimo==1)
                             <td>Anonimo</td>
                         @else
-                            <td>{{$arrayN[$publicacion->id]}}</td>
+                            <td>{{$arrayN[$publicacion->user_id]}}</td>
                         @endif
 
                     @endif

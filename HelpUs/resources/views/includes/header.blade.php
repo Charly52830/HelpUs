@@ -8,17 +8,16 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<ul class="navbar-nav">
-			<li class="nav-item">
+			<li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
 				<a class="nav-link" href="{{ route('acoso.informacionGeneral') }}">Home<span class="sr-only"></span></a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item {{ Request::is('organizaciones') ? 'active' : '' }}">
 				<a class="nav-link" href="{{ route('organizaciones.infoGeneral') }}">Organizaciones</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item {{ Request::is('foro') ? 'active' : '' }}">
 				<a class="nav-link" href="{{ route('publicaciones.show_all') }}">Foro</a>
 			</li>
 		</ul>
 	</div>
 </nav>
 <hr>
-

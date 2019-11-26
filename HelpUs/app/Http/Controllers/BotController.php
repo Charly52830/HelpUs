@@ -24,6 +24,7 @@ class BotController extends Controller
 	 * */
 	public function respuesta(Request $request)
 	{
+		verifica_sesion();
 		$url = "http://148.72.65.115:8080/servicio/message?mensaje=%s&sessionId=%s";
 		$mensaje = $request -> pregunta;
 		$id_sesion = $_COOKIE['botsesion'];

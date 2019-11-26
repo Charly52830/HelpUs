@@ -5,3 +5,5 @@
 
 		<!-- Códigos personales -->
 		<link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+		<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap" rel="stylesheet">

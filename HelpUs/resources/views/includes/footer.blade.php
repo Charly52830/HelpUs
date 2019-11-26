@@ -3,8 +3,9 @@
 					<button type="button" class="btn btn-info" onclick="displayIframe()">Habla con Perry</button>
 				</div>
 			</div>
-			<hr>
-			<div class="container myfooter">
+			<footer>
+			<div class="container ">
+				<hr>
 				<div class="row">
 					<div class="col-md-4 text-center">
 						<a href="{{route('acoso.informacionGeneral')}}">
@@ -21,7 +22,8 @@
 					</div>
 				</div>
 			</div>
-			
+			</footer>
+
 			<!-- Codigo fuente de JQuery -->
 			<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 

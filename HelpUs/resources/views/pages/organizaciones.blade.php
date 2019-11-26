@@ -2,9 +2,10 @@
 @section('content')
 	<div class="container org-header">
 		<div class="row">
-			<div class="col-md-4">
-				<h4 class="helpus-font-2">¡No estás solo!</h4>
-				<h5 class="helpus-font-3">Conoce las organizaciones que pueden ayudarte
+			<div class="col-md-12">
+				<h4 class="helpus-font-2 text-center">¡No estás solo!</h4>
+				<br>
+				<h5 class="helpus-font-3 text-center">Conoce las organizaciones que pueden ayudarte
 				si sufres de acoso o discriminación.</h5>
 			</div>
 		</div>
@@ -25,7 +26,7 @@
 				<div class="card-body">
 					<h5 class="card-title">{{ $orgs->nombre }}</h5>
 					<hr>
-					<p class="card-text text-justify helpus-font">{{ $orgs->resumen }}</p>
+					<p class="card-text text-justify ">{{ $orgs->resumen }}</p>
 					<p class="card-text">Teléfono: {{ $orgs->telefono }}</p>
 				</div>
 				<div class="card-footer">

@@ -2,9 +2,10 @@
 @section('content')
 <div class="container org-header">
 	<div class="row">
-		<div class="col-md-4">
-			<h4 class="helpus-font-2">¡Infórmate!</h4>
-			<h5 class="helpus-font-3">En esta sección puedes encontrar información general del acoso.</h5>
+		<div class="col-md-12">
+			<h4 class="helpus-font-2 text-center">¡Infórmate!</h4>
+			<br>
+			<h5 class="helpus-font-3 text-center">En esta sección puedes encontrar información general del acoso.</h5>
 		</div>
 	</div>
 </div>

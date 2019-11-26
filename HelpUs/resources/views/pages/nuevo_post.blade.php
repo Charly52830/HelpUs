@@ -38,7 +38,7 @@
 				<label for="titulo" class="cursiva">Escribe aquí</label>
 				<textarea class="form-control" name="contenido" id="contenido" rows="3" required></textarea>
 			</div>
-			<button type="submit" class="btn btn-light btn-nuevo">Publicar</button>
+			<button type="submit" class="btn btn-light btn-nuevopost">Publicar</button>
 		</form>
 		@else
 

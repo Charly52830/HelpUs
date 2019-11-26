@@ -36,7 +36,7 @@
 }
 
 .btn-nuevo {
-    background:  #e74c3c;
+    background:     #16a085 ;
     color: black;
 
 }
@@ -55,8 +55,8 @@
 }
 
 .btn-nuevo:hover {
-    background:  #cb4335 ;
-    border-color: #cb4335;
+    background:   #138d75 ;
+    border-color:  #138d75 ;
     color: white;
 }
 
@@ -173,6 +173,7 @@
     word-wrap: break-word;         /* Internet Explorer 5.5+ */
     word-break: break-all;
     white-space: normal;}​
+
 .helpus-font-p {
 	font-family: 'Roboto', sans-serif;
   color:#4c4c4d;

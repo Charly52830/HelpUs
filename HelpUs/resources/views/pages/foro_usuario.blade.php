@@ -33,40 +33,38 @@
                 <th scope="col">Fecha</th>
                 <th scope="col">Respuestas</th>
                 <th></th>
-                <th></th>
             </tr>
             </thead>
             @guest
             @else
-                <hr>
-                <a class="btn  btn-primary cursiva align-middle" href="{{ route('publicaciones.getPostU', Auth::user()->id)}}">Ver mis publicaciones</a>
-                </br>
-                </br>
             @endguest
             <tbody>
-            @foreach($publicaciones as $publicacion)
+            @foreach($publicacionUser as $publicacion)
                 <tr>
-                    <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}  " >{{ $publicacion->titulo }}</a></td>
-                    @if ( !empty($arryN[$publicacion->user_id]))
+                    <td><a class="helpus-font" href= "{{ route('publicaciones.get',$publicacion->id) }}" >{{ $publicacion->titulo }}</a></td>
+                    @if ($publicacion->anonimo==1)
                         <td>Anonimo</td>
                     @else
-                        @if ($publicacion->anonimo==1)
-                            <td>Anonimo</td>
-                        @else
-                            <td>{{$arrayN[$publicacion->user_id]}}</td>
-                        @endif
-
-                    @endif
-                    <td class="text-center post-fecha" >{{$publicacion->update_at}}</td>
-                    @if ( empty($arrayC[$publicacion->id]))
-                        <td>0</td>
-                    @else
-                        <td>{{$arrayC[$publicacion->id]}} </td>
+                        <td>{{Auth::user()->name}}</td>
                     @endif
 
+                    <td>{{$publicacion->create_at}}</td>
+                    <td></td>
+                    @if ($publicacion->user_id == Auth::user()->id)
+                        <td><a class="btn btn-success" href= "{{ route('publicaciones.getPublicacionU',$publicacion->id) }}"> Modificar Post </a></td>
+                        <td><a type="delete" class="btn btn-danger" href= "{{ route('publicaciones.delete', $publicacion->id) }}"> Eliminar Post </a></td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div></div>
+
+    <script>
+        if(document.getElementById("anonimo").checked) {
+            document.getElementById('anonimo').valueOf(true);
+        }else{
+            document.getElementById('anonimo').valueOf(false);
+        }
+    </script>
 @stop

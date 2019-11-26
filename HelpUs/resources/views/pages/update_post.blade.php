@@ -27,37 +27,29 @@
             <hr>
             <div class="container">
                 @guest
-                    <h3 class="cursiva">Nuevo tema de discusión</h3>
-                    <form action="{{route('publicacion.create')}}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <label for="titulo" class="cursiva">Titulo</label>
-                            <textarea class="form-control" name="titulo" id="titulo" rows="1" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="titulo" class="cursiva">Escribe aquí</label>
-                            <textarea class="form-control" name="contenido" id="contenido" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-light btn-nuevo">Publicar</button>
-                    </form>
                 @else
 
-                    <h3 class="cursiva">Nuevo tema de discusión</h3>
-                    <form action="{{route('publicacion.createU')}}" method="post">
+                    <h3 class="cursiva">Modifica tema de discusión</h3>
+                    <form action="{{route('publicaciones.update','$publicacion')}}" method="post">
                         @csrf
                         <div class="row">
-
-                            <input type="checkbox" class="form-check-input " name="anonimo" id="anonimo" value="1">¿Quieres publicarlo de manera anonima?</br>
+                            <input type="checkbox" class="form-check-input " name="anonimo" id="anonimo" checked="{{$publicacion->anonimo}}" value="1">¿Quieres publicarlo de manera anonima?</br>
                         </div>
                         <div class="form-group">
                             <label for="titulo" class="cursiva">Titulo</label>
-                            <textarea class="form-control" name="titulo" id="titulo" rows="1" required></textarea>
+                            <textarea class="form-control" name="titulo" id="titulo" rows="1" required>{{$publicacion->titulo }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="titulo" class="cursiva">Escribe aquí</label>
-                            <textarea class="form-control" name="contenido" id="contenido" rows="3" required></textarea>
+                            <textarea class="form-control" name="contenido" id="contenido" rows="3" required>{{$publicacion->contenido }}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-light btn-nuevo">Publicar</button>
+												<input name="id" id="id" hidden value="{{$publicacion->id}}"></input>
+												<input name="user_id" id="user_id" hidden value="{{$publicacion->user_id}}"></input>
+
+
+
+
+                        <button type="submit" class="btn btn-light btn-nuevo">Modificar</button>
                     </form>
                 @endguest
 

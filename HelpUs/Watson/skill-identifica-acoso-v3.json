@@ -1,0 +1,1163 @@
+{
+  "name": "Identifica acoso",
+  "intents": [
+    {
+      "intent": "ibm-action-muchas_gracias",
+      "examples": [
+        {
+          "text": "Gracias"
+        },
+        {
+          "text": "Muchas gracias"
+        },
+        {
+          "text": "qué amable"
+        },
+        {
+          "text": "te lo agradezco"
+        },
+        {
+          "text": "muy agradecido"
+        },
+        {
+          "text": "muy amable"
+        }
+      ],
+      "description": "Usuario da gracias"
+    },
+    {
+      "intent": "ibm-action-mis_compaeros_de_trabajo_me_a",
+      "examples": [
+        {
+          "text": "vecino me espia en las noches y no se qué hacer"
+        },
+        {
+          "text": "ex novio me chantajea con compartir mis fotos desnuda"
+        },
+        {
+          "text": "mis amigos me hacen insinuaciones impropias"
+        },
+        {
+          "text": "¿Qué es el acoso sexual?"
+        },
+        {
+          "text": "que es el acoso sexual"
+        },
+        {
+          "text": "mis compañeros de trabajo me acosan sexualmente, ¿cómo debo actuar?"
+        },
+        {
+          "text": "mi compañero se masturba enfrente de mi"
+        },
+        {
+          "text": "el profesor de la escuela me acosa sexualmente, ¿qué debo hacer?"
+        },
+        {
+          "text": "mi jefe de trabajo trató de tocarme estando en su oficina y fue muy asqueroso"
+        },
+        {
+          "text": "mis compañeros hacen comentarios acerca de mi cuerpo"
+        },
+        {
+          "text": "dos tipos borrachos me miraban fijamente ayer en el camión"
+        }
+      ],
+      "description": "Identifica acoso sexual"
+    },
+    {
+      "intent": "ibm-action-me_puedes_ayudar_en_una_denunc",
+      "examples": [
+        {
+          "text": "como denuncio un intento de "
+        },
+        {
+          "text": "que tengo que hacer para denunciar"
+        },
+        {
+          "text": "me puedes ayudar en una denuncia"
+        },
+        {
+          "text": "quiero denunciar a mis compañeros en el trabajo"
+        },
+        {
+          "text": "deseo acusar a los alumnos de mi escuela"
+        },
+        {
+          "text": "sabes como hacer una denuncia por acoso sexual"
+        },
+        {
+          "text": "en dónde puedo llevar a cabo una denuncia por acoso laboral"
+        }
+      ],
+      "description": "Identifica intención de denuncia"
+    },
+    {
+      "intent": "ibm-action-mis_compaeros_de_clase_se_bur",
+      "examples": [
+        {
+          "text": "los alumnos de la escuela me discriminan"
+        },
+        {
+          "text": "mis compañeros de clase se burlan de mi constantemente"
+        },
+        {
+          "text": "mis compañeros del grupo me molestan en clases"
+        },
+        {
+          "text": "los estudiantes me hostigan en el salón de clases"
+        },
+        {
+          "text": "los alumnos de la escuela me humillan"
+        },
+        {
+          "text": "busco como puedo prevenir el bullying"
+        },
+        {
+          "text": "¿como puedo evitar el bullying?"
+        },
+        {
+          "text": "que debo hacer si mis compañeros me hacen bullying en mi escuela"
+        },
+        {
+          "text": "que es acoso escolar"
+        },
+        {
+          "text": "que es bullying"
+        },
+        {
+          "text": "¿Qué es el bullying?"
+        }
+      ],
+      "description": "Identifica bullying"
+    },
+    {
+      "intent": "ibm-action-gracias",
+      "examples": [
+        {
+          "text": "Hasta pronto"
+        },
+        {
+          "text": "Nos vemos"
+        },
+        {
+          "text": "Hasta luego"
+        },
+        {
+          "text": "adios"
+        },
+        {
+          "text": "Chao"
+        }
+      ],
+      "description": "Despedida"
+    },
+    {
+      "intent": "ibm-action-hola",
+      "examples": [
+        {
+          "text": "Hola"
+        },
+        {
+          "text": "¿Cómo te ecuentras?"
+        },
+        {
+          "text": "¿Cómo te va?"
+        },
+        {
+          "text": "que tal Perry"
+        },
+        {
+          "text": "que tal"
+        },
+        {
+          "text": "Buenas noches"
+        },
+        {
+          "text": "Buenas tardes"
+        },
+        {
+          "text": "Buenos dias"
+        },
+        {
+          "text": "Hola Perry"
+        }
+      ],
+      "description": "Saludo"
+    },
+    {
+      "intent": "ibm-action-necesito_ayuda",
+      "examples": [
+        {
+          "text": "solicito apoyo"
+        },
+        {
+          "text": "socorro"
+        },
+        {
+          "text": "Necesito ayuda"
+        },
+        {
+          "text": "ayúdame"
+        },
+        {
+          "text": "necesito apoyo"
+        },
+        {
+          "text": "auxilio"
+        },
+        {
+          "text": "ayuda"
+        },
+        {
+          "text": "estoy en peligro"
+        },
+        {
+          "text": "te importaría ayudarme"
+        },
+        {
+          "text": "puedes ayudarme"
+        },
+        {
+          "text": "me ayudas"
+        }
+      ],
+      "description": "Usuario pide ayuda"
+    },
+    {
+      "intent": "ibm-action-mi_jefe_me_hostiga_constanteme",
+      "examples": [
+        {
+          "text": "los compañeros en mi trabajo abusan de mi por ser nuevo"
+        },
+        {
+          "text": "en el trabajo aprovechan su puesto para hacer actos ilícitos"
+        },
+        {
+          "text": "mi jefe me hostiga constantemente en el trabajo"
+        },
+        {
+          "text": "¿qué es el acoso laboral?"
+        },
+        {
+          "text": "estoy sufriendo de mobbing en el trabajo y no se cómo evitarlo"
+        },
+        {
+          "text": "que tengo que hacer para enfrentar el mobbing"
+        },
+        {
+          "text": "los superiores se aprovechan de los nuevos asigándoles tareas complicadas"
+        },
+        {
+          "text": "soy amenazado constantemente de que me corran de mi puesto"
+        },
+        {
+          "text": "en el trabajo nos obligan a trabajar más de la jornada laboral"
+        },
+        {
+          "text": "soy excluido de las actividades en mi trabajo"
+        }
+      ],
+      "description": "Identifica acoso laboral"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "query",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "si",
+          "synonyms": [
+            "yes",
+            "sí"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "no",
+          "synonyms": []
+        }
+      ]
+    },
+    {
+      "entity": "tipo_acoso",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "acoso sexual",
+          "synonyms": [
+            "sexual"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "acoso escolar",
+          "synonyms": [
+            "bulying",
+            "cyberbullying",
+            "escolar"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "acoso laboral",
+          "synonyms": [
+            "mobbing",
+            "acoso en el trabajo",
+            "laboral"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Entorno",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Internet",
+          "synonyms": [
+            "Redes sociales",
+            "Instagram",
+            "Facebook",
+            "Whatsapp",
+            "Messenger",
+            "twitter",
+            "web",
+            "skype",
+            "en linea",
+            "online",
+            "streaming",
+            "hotmail",
+            "navegador",
+            "computadora",
+            "tablet",
+            "celular"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Espacio publico",
+          "synonyms": [
+            "restaurant",
+            "plaza",
+            "parque",
+            "jardín",
+            "taxi",
+            "barrio",
+            "camión",
+            "avenida",
+            "calle",
+            "café",
+            "discoteca",
+            "antro",
+            "bar",
+            "cine",
+            "zacatecas",
+            "guadalupe",
+            "gimnasio",
+            "transporte",
+            "comedor",
+            "cafetería"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Trabajo",
+          "synonyms": [
+            "labor",
+            "chamba"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Escuela",
+          "synonyms": [
+            "campus",
+            "politécnica",
+            "tecnológico",
+            "prepa",
+            "preparatoria",
+            "bachillerato",
+            "secundaria",
+            "instituto",
+            "seminario",
+            "universidad",
+            "facultad",
+            "liceo",
+            "colegio"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Casa",
+          "synonyms": [
+            "Hogar",
+            "dormitorio",
+            "dormitorios",
+            "orfanato"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "es",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "skill_id": "8b4caae3-b273-49eb-b268-c7be2599a3dd",
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Aconseja acoso sexual en el trabajo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<p>El acoso sexual es cualquier comportamiento físico o verbal de naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra la dignidad de una persona</p>"
+              },
+              {
+                "text": "<p>Comunicale a alguien siempre que sientas que una persona te acosa sexualmente</p>\n<p>No cedas ante insistencias y procura tu integridad personal</p>"
+              },
+              {
+                "text": "¿Quieres saber cómo y dónde llevar a cabo una denuncia por acoso sexual?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_10_1574653388813",
+      "conditions": "@Entorno:Trabajo",
+      "dialog_node": "node_5_1574654782247",
+      "previous_sibling": "node_8_1574653678835"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_10_1574653388813",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1574653490379",
+      "previous_sibling": "response_5_1574653489582"
+    },
+    {
+      "type": "slot",
+      "parent": "node_10_1574653388813",
+      "variable": "$Entorno",
+      "dialog_node": "slot_8_1574653491219",
+      "previous_sibling": "handler_2_1574653490379"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1574653388813",
+      "disabled": true,
+      "dialog_node": "response_5_1574653489582",
+      "previous_sibling": "node_1_1574656628789"
+    },
+    {
+      "type": "standard",
+      "title": "Aconseja acoso sexual en lugares públicos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<p>El acoso sexual es cualquier comportamiento físico o verbal de naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra la dignidad de una persona</p>"
+              },
+              {
+                "text": "<p>Comunicale a alguien siempre que sientas que una persona te acosa sexualmente</p>\n<p>No cedas ante insistencias y procura tu integridad personal</p>"
+              },
+              {
+                "text": "¿Quieres saber cómo y dónde llevar a cabo una denuncia por acoso sexual?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_10_1574653388813",
+      "conditions": "@Entorno:(Espacio publico)",
+      "dialog_node": "node_1_1574656628789",
+      "previous_sibling": "node_5_1574654782247"
+    },
+    {
+      "type": "standard",
+      "title": "Aconseja contra acoso sexual en la escuela",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<p>El acoso sexual es cualquier comportamiento físico o verbal de naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra la dignidad de una persona</p>"
+              },
+              {
+                "text": "<p>Comunicale a alguien siempre que sientas que una persona te acosa sexualmente</p>\n<p>No cedas ante insistencias y procura tu integridad personal</p>"
+              },
+              {
+                "text": "¿Quieres saber cómo y dónde llevar a cabo una denuncia por acoso sexual?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_10_1574653388813",
+      "conditions": "@Entorno:Escuela",
+      "dialog_node": "node_8_1574653678835"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1575509742025",
+      "conditions": "@query:no",
+      "dialog_node": "node_3_1575522489697",
+      "previous_sibling": "node_4_1575522408458"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1575509742025",
+      "context": {
+        "tipo_acoso": "acoso escolar"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1575512479139"
+      },
+      "conditions": "@query:si",
+      "dialog_node": "node_4_1575522408458"
+    },
+    {
+      "type": "standard",
+      "title": "Pide ayuda para denunciar acoso sexual",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_8_1574653678835",
+      "context": {
+        "Entorno": null,
+        "tipo_acoso": "acoso sexual"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1575512479139"
+      },
+      "conditions": "@query:si",
+      "dialog_node": "node_3_1574749099141",
+      "previous_sibling": "node_2_1574657714078"
+    },
+    {
+      "type": "standard",
+      "title": "No pide ayuda para denunciar acoso sexual",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1574653678835",
+      "context": {
+        "Entorno": null
+      },
+      "conditions": "@query:no",
+      "dialog_node": "node_2_1574657714078"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "¿En qué lugar sufres de acoso sexual?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_8_1574653491219",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1574653491322",
+      "previous_sibling": "handler_6_1574653491321"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_8_1574653491219",
+      "context": {
+        "Entorno": "@Entorno"
+      },
+      "conditions": "@Entorno",
+      "event_name": "input",
+      "dialog_node": "handler_6_1574653491321"
+    },
+    {
+      "type": "standard",
+      "title": "Pide ayuda para denunciar acoso sexual",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_1_1574656628789",
+      "context": {
+        "Entorno": null,
+        "tipo_acoso": "acoso sexual"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1575512479139"
+      },
+      "conditions": "@query:si",
+      "dialog_node": "node_5_1574749885390",
+      "previous_sibling": "node_3_1574658231431"
+    },
+    {
+      "type": "standard",
+      "title": "No pide ayuda para denunciar acoso sexual",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1574656628789",
+      "context": {
+        "Entorno": null
+      },
+      "conditions": "@query:no",
+      "dialog_node": "node_3_1574658231431"
+    },
+    {
+      "type": "standard",
+      "parent": "node_9_1575526514491",
+      "context": {
+        "tipo_acoso": "acoso laboral"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1575512479139"
+      },
+      "conditions": "@query:si",
+      "dialog_node": "node_6_1575527678129",
+      "previous_sibling": "node_1_1575527638009"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1575526514491",
+      "conditions": "@query:no",
+      "dialog_node": "node_1_1575527638009"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1575512479139",
+      "variable": "$tipo_acoso",
+      "dialog_node": "slot_10_1575520735876",
+      "previous_sibling": "node_9_1575520941345"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<p>La fiscalía general de justicia del estado es la encargada de llevar a cabo las denuncias por acoso escolar</p>"
+              },
+              {
+                "text": "<p>Para más información visita su página  web aquí</p>\n<p>http://pgje.zacatecas.gob.mx/</p>"
+              },
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_1_1575512479139",
+      "context": {
+        "tipo_acoso": null
+      },
+      "conditions": "$tipo_acoso:(acoso escolar)",
+      "dialog_node": "node_9_1575520941345",
+      "previous_sibling": "node_2_1575520893972"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<p>La fiscalía general de justicia del estado es la encargada de llevar a cabo las denuncias por acoso laboral</p>"
+              },
+              {
+                "text": "<p>Para más información visita su página  web aquí</p>\n<p>http://pgje.zacatecas.gob.mx/</p>"
+              },
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_1_1575512479139",
+      "context": {
+        "tipo_acoso": null
+      },
+      "conditions": "$tipo_acoso:(acoso laboral)",
+      "dialog_node": "node_2_1575520893972",
+      "previous_sibling": "node_5_1575520860977"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<p>La fiscalía general de justicia del estado es la encargada de llevar a cabo las denuncias por acoso sexual</p>"
+              },
+              {
+                "text": "<p>Para más información visita su página  web aquí</p>\n<p>http://pgje.zacatecas.gob.mx/</p>"
+              },
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_1_1575512479139",
+      "context": {
+        "tipo_acoso": null
+      },
+      "conditions": "$tipo_acoso:(acoso sexual)",
+      "dialog_node": "node_5_1575520860977"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "¿Qué tipo de acoso deseas denunciar?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_10_1575520735876",
+      "context": {},
+      "event_name": "focus",
+      "dialog_node": "handler_7_1575520735945",
+      "previous_sibling": "handler_4_1575520735944"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1575520735876",
+      "context": {
+        "tipo_acoso": "@tipo_acoso"
+      },
+      "conditions": "@tipo_acoso",
+      "event_name": "input",
+      "dialog_node": "handler_4_1575520735944"
+    },
+    {
+      "type": "standard",
+      "title": "Pide ayuda para denunciar acoso sexual",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_5_1574654782247",
+      "context": {
+        "Entorno": null,
+        "tipo_acoso": "acoso sexual"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1575512479139"
+      },
+      "conditions": "@query:si",
+      "dialog_node": "node_4_1574749587462",
+      "previous_sibling": "node_8_1574657885406"
+    },
+    {
+      "type": "standard",
+      "title": "No pide ayuda para denunciar acoso sexual",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1574654782247",
+      "context": {
+        "Entorno": null
+      },
+      "conditions": "@query:no",
+      "dialog_node": "node_8_1574657885406"
+    },
+    {
+      "type": "standard",
+      "title": "Bienvenido",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hola. ¿Cómo puedo ayudarle?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bienvenido",
+      "previous_sibling": "node_10_1574653388813"
+    },
+    {
+      "type": "frame",
+      "title": "Identifica acoso sexual",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#ibm-action-mis_compaeros_de_trabajo_me_a",
+      "dialog_node": "node_10_1574653388813",
+      "previous_sibling": "node_3_1574954530853"
+    },
+    {
+      "type": "standard",
+      "title": "Identifica bullying",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<p>El bullying se refiere a todas las formas de actitudes agresivas, intencionadas y repetidas, adoptadas por uno o más estudiantes contra otros.</p>"
+              },
+              {
+                "text": "<p>Los profesores de tu escuela están obligados a resolver este tipo de conflictos. Comunícaselo a tus profesores, directivos o prefectos.</p>\n<p>Júntate con tus compañeros más cercanos y no permitas que el problema llegue a mayores.</p>"
+              },
+              {
+                "text": "¿Quieres saber cómo y dónde llevar a cabo una denuncia por bullying?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#ibm-action-mis_compaeros_de_clase_se_bur",
+      "dialog_node": "node_2_1575509742025",
+      "previous_sibling": "node_2_1575510336251"
+    },
+    {
+      "type": "standard",
+      "title": "En otras cosas",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No le he entendido. Intente reformular la consulta."
+              },
+              {
+                "text": "¿Puede expresarse con otras palabras? No le he entendido."
+              },
+              {
+                "text": "No entendí el significado."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "En otras cosas",
+      "previous_sibling": "Bienvenido",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Usuario pide ayuda",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h4>Si te encuentras en una situación de peligro llama inmediatamente a los servicios de emergencia. A continuación te muestro los teléfonos:</h4>"
+              },
+              {
+                "text": "<p>Servicios de emergencia: 911</p>\n<p>Policia: 066</p>\n<p>Cruz Roja Mexicana: 065</p>\n<p>Bomberos: 922 0911</p>"
+              },
+              {
+                "text": "<p>Mi trabajo es orientar a las personas para que aprendan a afrontar el acoso y a llevar a cabo denuncias formales</p>"
+              },
+              {
+                "text": "<p>¿Qué puedo hacer por ti?</p>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#ibm-action-necesito_ayuda",
+      "dialog_node": "node_4_1575507179187",
+      "previous_sibling": "node_2_1575509742025"
+    },
+    {
+      "type": "standard",
+      "title": "Despedida",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No es nada, estoy aquí para esto"
+              },
+              {
+                "text": "Solo hago mi trabajo"
+              },
+              {
+                "text": "Espero haberte ayudado"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#ibm-action-gracias",
+      "dialog_node": "node_2_1574955754204",
+      "previous_sibling": "node_4_1575507179187"
+    },
+    {
+      "type": "frame",
+      "title": "Identifica intención de denuncia",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#ibm-action-me_puedes_ayudar_en_una_denunc",
+      "dialog_node": "node_1_1575512479139",
+      "previous_sibling": "node_9_1575526514491"
+    },
+    {
+      "type": "standard",
+      "title": "Saludo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "¡Hola! Soy Perry, mi trabajo es orientar a las personas en temas de acoso, ¿cómo te puedo ayudar?"
+              },
+              {
+                "text": "¡Que tal! aquí Perry a la orden. ¿En qué te ayudo?"
+              },
+              {
+                "text": "¿Quieres saber cómo afrontar el acoso? ¡Yo te ayudo!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#ibm-action-hola",
+      "dialog_node": "node_3_1574954530853",
+      "previous_sibling": "node_2_1574955754204"
+    },
+    {
+      "type": "standard",
+      "title": "Usuario da gracias",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No es nada, estoy aquí para esto"
+              },
+              {
+                "text": "Solo hago mi trabajo"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#ibm-action-muchas_gracias",
+      "dialog_node": "node_2_1575510336251",
+      "previous_sibling": "node_1_1575512479139"
+    },
+    {
+      "type": "standard",
+      "title": "Identifica acoso laboral",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<p>Es la  repetitiva acción verbal o psicológica por la que, en el lugar de trabajo una persona hiere, humilla, ofende o amedrenta a una víctima.</p>"
+              },
+              {
+                "text": "<p>El departamento de recursos humanos es el encargado de solucionar este tipo de conflictos en una empresa. Contacta con ellos o con el directivo para que tomen cartas en el asunto.</p>"
+              },
+              {
+                "text": "<p>No te quedes callado, el acoso laboral tiende a repetirse entre compañeros de trabajo. Si no se atiende a tiempo los problemas surgidos por acoso laboral, pueden llegar a ser más severos con el pasar del tiempo</p>"
+              },
+              {
+                "text": "<p>Un ambiente sano de trabajo es un ambiente más productivo. Procura siempre tu salud mental</p>"
+              },
+              {
+                "text": "¿Quieres saber cómo denunciar el acoso laboral?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#ibm-action-mi_jefe_me_hostiga_constanteme",
+      "dialog_node": "node_9_1575526514491"
+    }
+  ],
+  "workspace_id": "8b4caae3-b273-49eb-b268-c7be2599a3dd",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "disambiguation": {
+      "prompt": "Querías decir:",
+      "none_of_the_above_prompt": "Ninguna de las anteriores"
+    },
+    "human_agent_assist": {
+      "prompt": "Querías decir:"
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}

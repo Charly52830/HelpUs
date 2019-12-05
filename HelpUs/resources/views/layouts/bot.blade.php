@@ -44,7 +44,7 @@
 								<textarea class="form-control" rows="1" placeholder="Escribe tu mensaje aquí" name="pregunta" id="pregunta"></textarea>
 							</div>
 							<div class="col-4">
-								<button type="submit" id="ajaxSubmit" class="btn btn-primary text-right">Enviar</button>
+								<button type="submit" id="ajaxSubmit" name="ajaxSubmit"class="btn btn-primary text-right">Enviar</button>
 							</div>
 						</div> <!-- Fin renglón de la caja de texto y el botón -->
 					</form>
@@ -61,41 +61,53 @@
 
 			<!-- Comunicación con el bot -->
 			<script>
-				jQuery(document).ready( function() {
-					jQuery('#ajaxSubmit').click( function(e) {
-						//Elimina la función principal del botón.
-						e.preventDefault();
+				jQuery(document).ready( 
+					function() {
+						jQuery('#ajaxSubmit').click( 
+							function(e) {
+								//Elimina la función principal del botón.
+								e.preventDefault();
 
-						//Escribe en la pantalla del chat el mensaje que está enviando el usuario
-						var envia_mensaje = "<div class=\"container-fluid text-right\"><div class=\"card text-white bg-success mb-3\" style=\"max-width: 18rem;\"><div class=\"card-body\"><p class=\"card-text\">"+jQuery('#pregunta').val()+"</p></div></div></div>";
-						document.getElementById('chat-bot').innerHTML+= envia_mensaje;
+								//Escribe en la pantalla del chat el mensaje que está enviando el usuario
+								var envia_mensaje = "<div class=\"container-fluid text-right\"><div class=\"card text-white bg-success mb-3\" style=\"max-width: 18rem;\"><div class=\"card-body\"><p class=\"card-text\">"+jQuery('#pregunta').val()+"</p></div></div></div>";
+								document.getElementById('chat-bot').innerHTML+= envia_mensaje;
 
-						jQuery.ajax( {
-							url: "/mensaje",
-							method: 'post',
-							headers: {
-								'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-							},
-							data: {
-								pregunta: jQuery('#pregunta').val(),
-							},
-							success: function(result) {
+								jQuery.ajax( {
+									url: "/mensaje",
+									method: 'post',
+									headers: {
+										'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+									},
+									data: {
+										pregunta: jQuery('#pregunta').val(),
+									},
+									success: function(result) {
 
-								//Escribe en pantalla el mensaje que respondió el bot
-								var mensaje_nuevo = "<div class=\"card text-white bg-info mb-3\" style=\"max-width: 18rem;\"><div class=\"card-body\"><p class=\"card-text\">"+result.respuesta+"</p></div></div>";
-								document.getElementById('chat-bot').innerHTML+= mensaje_nuevo;
-								$('#pregunta').val('');
+										//Escribe en pantalla el mensaje que respondió el bot
+										var mensaje_nuevo = "<div class=\"card text-white bg-info mb-3\" style=\"max-width: 18rem;\"><div class=\"card-body\"><p class=\"card-text\">"+result.respuesta+"</p></div></div>";
+										document.getElementById('chat-bot').innerHTML+= mensaje_nuevo;
+										$('#pregunta').val('');
 
-							},
-							error: function(error) {
+									},
+									error: function(error) {
 
-								//Escribe en pantalla un mensaje de error
-								var mensaje_nuevo = "<div class=\"card text-white bg-danger mb-3\" style=\"max-width: 18rem;\"><div class=\"card-body\"><p class=\"card-text\">Ocurrió un error, inténtalo de nuevo más tarde.</p></div></div>";
-								document.getElementById('chat-bot').innerHTML+= mensaje_nuevo;
+										//Escribe en pantalla un mensaje de error
+										var mensaje_nuevo = "<div class=\"card text-white bg-danger mb-3\" style=\"max-width: 18rem;\"><div class=\"card-body\"><p class=\"card-text\">Ocurrió un error, inténtalo de nuevo más tarde.</p></div></div>";
+										document.getElementById('chat-bot').innerHTML+= mensaje_nuevo;
+									}
+								});	//Termina función ajax
 							}
-						});
-					});
-				});
+						);
+						
+						jQuery('#pregunta').keypress( function(e) {
+							if(e.which == 13) {
+								jQuery('#ajaxSubmit').trigger('click');
+								return false;
+							}
+						})
+						
+					}
+				);
 			</script> <!-- Termina comunicación con el bot -->
 		</footer>
 	</body>
